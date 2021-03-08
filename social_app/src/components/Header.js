@@ -1,18 +1,21 @@
+import News from '../images/news.png'
 import Jumbotron from 'react-bootstrap/Jumbotron'
-import { useState} from 'react'
+
+
+
 
 const Header = ({ title }) => {
-
-    const [isOpen, setOpen] = useState(false)
 
     return (
         <header className='header'>
             <Jumbotron fluid>
+                <div className="menu">
+                    <div className="line"/>
+                    <div className="line"/>
+                    <div className="line"/>
+                </div>
                 <h1>{title}</h1>
-                <div className='hamburber' toggled={isOpen} toggle={setOpen} />
-                <div className="btn-line"></div>
-                <div className="btn-line"></div>
-                <div className="btn-line"></div>
+                <img className='news' src={News} alt='News' href='/'/>
             </Jumbotron>
         </header>
     )
@@ -23,3 +26,6 @@ Header.defaultProps = {
 }
 
 export default Header
+
+
+
