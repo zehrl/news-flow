@@ -7,7 +7,7 @@ const GoogleMap = ({ placeName }) => {
         const additionalOptions = {};
         
         const loader = new Loader({
-            apiKey: "AIzaSyBZO9677DX6f_P-azngepYL5lT7NHKD7YY",
+            apiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
             version: "weekly",
             ...additionalOptions,
           });
