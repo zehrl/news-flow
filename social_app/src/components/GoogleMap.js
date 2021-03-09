@@ -29,28 +29,38 @@ const GoogleMap = ({ initLat, initLng, zoom }) => {
 
                 // Pull out latitude and longitude from mapsMouseEvent
                 let { lat, lng } = mapsMouseEvent.latLng.toJSON();
+                
+                console.log(" ----- Google Maps API Call Results ----- ")
+                console.log(`You clicked these coordinates: ${lat}, ${lng}`);
 
-                console.log(`Lat: ${lat} Lng: ${lng}`);
-
-                // Get location data from coordinates (Google Geocoding)
-                axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&result_type=locality`)
+                // Get location data from coordinates (Google Geocoding). Return only country & state equivalent (some countries don't have states)
+                axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&result_type=country|administrative_area_level_1`)
                     .then((res) => {
-                        let location;
-                        const { data } = res;
+                        let country;
+                        let state;
+                        const { data: {results} } = res;
+                        
+                        // Try to set state from response to state variable
                         try {
-                            location = data.results[0].formatted_addresselse;
+                            state = results[0].address_components[0].long_name;
                         }
                         catch {
-                            location = "No location found."
+                            state = "No state found."
                         }
 
-                        console.log("Google Geocoding Response: ", res)
-                        console.log("Google Geocoding Location: ", location);
+                        // Try to set country from response to country variable
+                        try {
+                            country = results[1].formatted_address;
+                        }
+                        catch {
+                            country = "No country found."
+                        }
 
-                        // let city = data.results[7].address_components[0].long_name;
-                        // let state = data.results[7].address_components[2].long_name;
-                        // console.log("City: ", city);
-                        // console.log("State: ", state);
+                        // Development Console Logs
+                        console.log(" ----- Geocoding API Call Results ----- ")
+                        console.log("Google Geocoding Results: ", results)
+                        console.log("State: ", state)
+                        console.log("Country: ", country);
 
                     })
             });
