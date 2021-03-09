@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Loader } from "@googlemaps/js-api-loader";
 
 const GoogleMap = ({ initLat, initLng, zoom}) => {
-    let google = window.google;
+    let { google } = window;
 
     useEffect(() => {
         const additionalOptions = {};
@@ -48,4 +48,4 @@ return (
 );
 };
 
-export default GoogleMap
+export default GoogleMap;
