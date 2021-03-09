@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import GoogleMap from './components/GoogleMap';
 function App() {
 
 // const [] = useState()
@@ -11,6 +12,7 @@ function App() {
   return (
     <div className="App">
     <Header />
+    <GoogleMap placeName="Fort Wayne"/>
     <Footer />
     </div>
   );
