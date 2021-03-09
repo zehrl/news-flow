@@ -15,4 +15,4 @@ Footer.defaultProps = {
 }
 
 
-export default Footer
+export default Footer 
