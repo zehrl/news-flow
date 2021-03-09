@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
     <Header />
-    <GoogleMap placeName="Fort Wayne"/>
+    <GoogleMap initLat={47.59764059923029} initLng={-122.32893838093258} zoom={12}/>
     <Footer />
     </div>
   );
