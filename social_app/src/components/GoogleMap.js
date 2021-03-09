@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { Loader } from "@googlemaps/js-api-loader";
 
 const GoogleMap = ({ initLat, initLng, zoom}) => {
-    let { google } = window;
-    
+    // let { google } = window;
+
     useEffect(() => {
         const additionalOptions = {};
         let map;
@@ -14,11 +14,9 @@ const GoogleMap = ({ initLat, initLng, zoom}) => {
             ...additionalOptions,
         });
 
-        loader.load().then((obj) => {
-            console.log(obj);
-            
+        loader.load().then(() => {            
             // Load map into the #google-map div after connecting to google with api key
-            map = new google.maps.Map(document.getElementById("google-map"), {
+            return map = new window.google.maps.Map(document.getElementById("google-map"), {
                 center: { lat: initLat, lng: initLng },
                 zoom,
             });
