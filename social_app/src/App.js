@@ -11,12 +11,18 @@ function App() {
 
 
   return (
-    <div className="App">
-    <Header />
-    <GoogleMap placeName="Fort Wayne"/>
-    <NewsCard />
-    <Footer />
-    </div>
+    <>
+      <div className="App">
+        <Header />
+        <GoogleMap placeName="Fort Wayne"/>
+        <NewsCard />
+  
+      </div>  
+      
+      <div>
+        <Footer />
+      </div>
+    </>
   );
 }
 
