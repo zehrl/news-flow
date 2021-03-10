@@ -1,13 +1,79 @@
 import React, { useEffect } from 'react';
 import { Loader } from "@googlemaps/js-api-loader";
-import axios from "axios";
+import API from '../utils/API';
 
 const GoogleMap = ({ initLat, initLng, zoom }) => {
-    // let { google } = window;
+    
+    let markers = [];
+
+    const addMap = (divId, center, zoom) => {
+
+        const map = new window.google.maps.Map(document.getElementById("google-map"), {
+            center: { lat: initLat, lng: initLng },
+            zoom,
+        });
+
+        return map;
+    }
+
+    const addMarker = (map, lat, lng) => {
+        
+        const marker = new window.google.maps.Marker({
+            position: { lat, lng },
+            map
+        });
+
+        markers.push(marker);
+
+        return marker;
+    }
+
+    const addInfoWindow = (state, country, map, marker) => {
+        const infoWindow = new window.google.maps.InfoWindow({
+            content: `${state}, ${country}`
+        });
+
+        infoWindow.open(map, marker);
+    }
+
+    const handleAddMap = () => {
+
+        const map = addMap("google-map", { initLat, initLng }, zoom);
+
+        // Add map click listener
+        map.addListener("click", (mapsMouseEvent) => handleMapClick(mapsMouseEvent, map))
+    }
+
+    const handleMapClick = (mapsMouseEvent, map) => {
+        let { lat, lng } = mapsMouseEvent.latLng.toJSON();
+
+        // Development Console Logs
+        console.log(" ----- Google Maps API Call Results ----- ")
+        console.log(`You clicked these coordinates: ${lat}, ${lng}`);
+
+        // Add marker to the map clicked
+        const marker = addMarker(map, lat, lng);
+
+        // Remove previous marker from map if it exists
+        if (markers.length > 1) {
+            markers[0].setMap(null);
+            markers.shift();
+        }
+
+        // Get location of point clicked based on latitude and longitude
+        API
+            .getLocation(lat, lng)
+            .then(({ state, country }) => {
+
+                // Add info window to the marker
+                addInfoWindow(state, country, map, marker)
+            })
+
+
+    }
 
     useEffect(() => {
         const additionalOptions = {};
-        let map;
 
         const loader = new Loader({
             apiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -17,78 +83,8 @@ const GoogleMap = ({ initLat, initLng, zoom }) => {
 
         loader
             .load()
-            .then(() => {
-                // Load map into the #google-map div after connecting to google with api key
-                return map = new window.google.maps.Map(document.getElementById("google-map"), {
-                    center: { lat: initLat, lng: initLng },
-                    zoom,
-                });
-            })
-            .then(() => {
-
-                // Add click listener to the map object after it is created
-                map.addListener("click", (mapsMouseEvent) => {
-
-                    // Pull out latitude and longitude from mapsMouseEvent
-                    let { lat, lng } = mapsMouseEvent.latLng.toJSON();
-
-                    // Development Console Logs
-                    console.log(" ----- Google Maps API Call Results ----- ")
-                    console.log(`You clicked these coordinates: ${lat}, ${lng}`);
-
-                    // Add marker
-                    const marker = new window.google.maps.Marker({
-                        position: { lat, lng },
-                        map
-                    });
-
-                    // Get location data from coordinates (Google Geocoding). Return only country & state equivalent (some countries don't have states)
-                    axios
-                        .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&result_type=country|administrative_area_level_1`)
-                        .then((res) => {
-                            let country;
-                            let state;
-                            const { data: { results } } = res;
-
-                            // Try to set state from response to state variable
-                            try {
-                                state = results[0].address_components[0].long_name;
-                            }
-                            catch {
-                                state = "No state found"
-                            }
-
-                            // Try to set country from response to country variable
-                            try {
-                                country = results[1].formatted_address;
-                            }
-                            catch {
-                                country = "No country found"
-                            }
-
-                            // Development Console Logs
-                            console.log(" ----- Geocoding API Call Results ----- ")
-                            console.log("Google Geocoding Results: ", results)
-                            console.log("State: ", state)
-                            console.log("Country: ", country);
-
-                            return { state, country }
-                        })
-                        .then(({ state, country }) => {
-
-                            // Add info window
-                            const infoWindow = new window.google.maps.InfoWindow({
-                                content: `${state}, ${country}`
-                            });
-
-                            infoWindow.open(map, marker);
-
-                        })
-                });
-
-            });
-
-    })
+            .then(() => handleAddMap())
+    });
 
     return (
         <div
