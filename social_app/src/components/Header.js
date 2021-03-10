@@ -1,7 +1,5 @@
-import News from '../images/news.png'
-import Jumbotron from 'react-bootstrap/Jumbotron'
-
-
+import News from '../images/news.png';
+import '../sass/header.scss';
 
 
 
@@ -9,7 +7,6 @@ const Header = ({ title }) => {
 
     return (
         <header className='header'>
-            <Jumbotron fluid>
                 <div className="menu">
                     <div className="line"/>
                     <div className="line"/>
@@ -17,7 +14,6 @@ const Header = ({ title }) => {
                 </div>
                 <h1>{title}</h1>
                 <img className='news' src={News} alt='News' href='/'/>
-            </Jumbotron>
         </header>
     )
 }
