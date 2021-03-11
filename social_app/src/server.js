@@ -1,17 +1,23 @@
-const express = require("express");
-const path = require("path");
-const morgan = require('morgan');
-
-// Sets up the Express App
-// =============================================================
+const express = require('express');
+const bodyParser = require('body-parser')
+const path = require('path');
 const app = express();
+
 const PORT = 3000;
 
-// Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.static(path.join(__dirname, 'build')));
 
-app.listen(PORT, function() {
+app.get('/ping', function (req, res) {
+ return res.send('pong');
+});
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+
+});
+
+
+   
+app.listen(process.env.PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
-  
