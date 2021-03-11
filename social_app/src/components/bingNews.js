@@ -1,30 +1,16 @@
+/* eslint-disable no-unused-expressions */
+import axios from "axios"
 
-const { NewsSearchClient } = require("@azure/cognitiveservices-newssearch");
-const { CognitiveServicesCredentials } = require("@azure/ms-rest-azure-js");
-const { REACT_APP_BING_NEWS_API_KEY } = process.env;
- 
-async function main() {
-  const newsSearchKey = process.env["newsSearchKey"] || "<newsSearchKey>";
-  const cognitiveServiceCredentials = new CognitiveServicesCredentials(
-    newsSearchKey
-  );
-  const client = new NewsSearchClient(cognitiveServiceCredentials);
-  const query = "Microsoft Azure";
-  const options = {
-    count: 10,
-    freshness: "Month",
-    safeSearch: "Strict"
-  };
-  client.news
-    .search(query, options)
-    .then(result => {
-      console.log("The result is:");
-      console.log(result);
-    })
-    .catch(err => {
-      console.log("An error occurred:");
-      console.error(err);
-    });
-}
- 
-main();
+const endPoint = "https://api.bing.microsoft.com/v7.0/news/search?mkt=en-US&q=";
+const APIKEY = process.env.REACT_APP_BING_NEWS_API_KEY;
+const query = "Microsoft"
+
+
+const res =  axios.get(endPoint + query, {
+  headers: {
+    'Ocp-Apim-Subscription-Key': APIKEY
+  }
+});
+
+
+console.log(res);
