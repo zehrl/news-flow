@@ -1,5 +1,5 @@
 import News from '../images/news.png';
-import '../sass/header.scss';
+
 
 
 
