@@ -2,6 +2,7 @@
 import Header from './components/Header'
 import Footer from './components/Footer'
 import GoogleMap from './components/GoogleMap';
+import main from './components/bingNews';
 import NewsCard from './components/NewsCard';
 function App() {
 
