@@ -1,23 +1,77 @@
 import Card from 'react-bootstrap/Card';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 const NewsCard = () => {
-    return (
-        <div className="newsCard">
-        <Card style={{ width: '18rem' }}>
-            <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-                <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
-    </Card.Text>
-                <Card.Link href="#">Card Link</Card.Link>
-                <Card.Link href="#">Another Link</Card.Link>
-            </Card.Body>
-        </Card>
-        </div>
-    )
+  return (
+
+<div id="newsCard" >
+<Card style={{ width: '30rem' }} className="mx-auto shadow-lg p-3 mb-5 bg-white rounded">
+    <Card.Body>
+      <Card.Title>Card title</Card.Title>
+      <Card.Text>
+        This card has supporting text below as a natural lead-in to additional
+        content.
+      </Card.Text>
+      <Card.Text>
+        <small className="text-muted">Last updated 3 mins ago</small>
+      </Card.Text>
+    </Card.Body>
+  </Card>
+
+  <Card style={{ width: '30rem' }} className="mx-auto shadow-lg p-3 mb-5 bg-white rounded">
+    <Card.Body>
+      <Card.Title>Card title</Card.Title>
+      <Card.Text>
+        This card has supporting text below as a natural lead-in to additional
+        content.
+      </Card.Text>
+      <Card.Text>
+        <small className="text-muted">Last updated 3 mins ago</small>
+      </Card.Text>
+    </Card.Body>
+  </Card>
+
+  <Card style={{ width: '30rem' }} className="mx-auto shadow-lg p-3 mb-5 bg-white rounded">
+    <Card.Body>
+      <Card.Title>Card title</Card.Title>
+      <Card.Text>
+        This card has supporting text below as a natural lead-in to additional
+        content.
+      </Card.Text>
+      <Card.Text>
+        <small className="text-muted">Last updated 3 mins ago</small>
+      </Card.Text>
+    </Card.Body>
+  </Card>
+
+  <Card style={{ width: '30rem' }} className="mx-auto shadow-lg p-3 mb-5 bg-white rounded">
+    <Card.Body>
+      <Card.Title>Card title</Card.Title>
+      <Card.Text>
+        This card has supporting text below as a natural lead-in to additional
+        content.
+      </Card.Text>
+      <Card.Text>
+        <small className="text-muted">Last updated 3 mins ago</small>
+      </Card.Text>
+    </Card.Body>
+  </Card>
+
+  <Card style={{ width: '30rem' }} className="mx-auto shadow-lg p-3 mb-5 bg-white rounded">
+    <Card.Body>
+      <Card.Title>Card title</Card.Title>
+      <Card.Text>
+        This card has supporting text below as a natural lead-in to additional
+        content.
+      </Card.Text>
+      <Card.Text>
+        <small className="text-muted">Last updated 3 mins ago</small>
+      </Card.Text>
+    </Card.Body>
+  </Card>
+</div>
+  )
+
 }
 
 export default NewsCard
