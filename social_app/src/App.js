@@ -2,8 +2,9 @@
 import Header from './components/Header'
 import Footer from './components/Footer'
 import GoogleMap from './components/GoogleMap';
-import main from './components/bingNews';
 import NewsCard from './components/NewsCard';
+import Bing from './components/bingNews'
+
 function App() {
 
 // const [] = useState()
@@ -12,6 +13,7 @@ function App() {
 
 
   return (
+    <div>
       <div className="App">
         <Header />
         <GoogleMap initLat={47.59764059923029} initLng={-122.32893838093258} zoom={12}/>
@@ -20,6 +22,7 @@ function App() {
       
       <div>
         <Footer />
+      </div>
       </div>
   );
 }
