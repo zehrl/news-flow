@@ -20,7 +20,11 @@ function App() {
         <Header />
         <GoogleMap initLat={47.59764059923029} initLng={-122.32893838093258} zoom={12} />
         <NewsCard />
-        <Router path="ProfilePage" component={ProfilePage} />
+        <switch>
+        <Router path="/" component={App} />
+        <Router path="/ProfilePage" component={ProfilePage} />
+        </switch>
+        <switch />
         <Footer />
       </div>
     </Router>
