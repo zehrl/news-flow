@@ -3,7 +3,6 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import GoogleMap from './components/GoogleMap';
 import NewsCard from './components/NewsCard';
-import Bing from './components/bingNews'
 
 function App() {
 

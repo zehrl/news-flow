@@ -3,7 +3,7 @@ import { Loader } from "@googlemaps/js-api-loader";
 import API from '../utils/API';
 
 const GoogleMap = ({ initLat, initLng, zoom }) => {
-    
+
     let markers = [];
 
     const addMap = (divId, center, zoom) => {
@@ -17,7 +17,7 @@ const GoogleMap = ({ initLat, initLng, zoom }) => {
     }
 
     const addMarker = (map, lat, lng) => {
-        
+
         const marker = new window.google.maps.Marker({
             position: { lat, lng },
             map
@@ -67,6 +67,17 @@ const GoogleMap = ({ initLat, initLng, zoom }) => {
 
                 // Add info window to the marker
                 addInfoWindow(state, country, map, marker)
+                return { state, country }
+            })
+            .then(({ state, country }) => {
+                API
+                    .getNews(`${state}, ${country}`)
+                    .then((res) => {
+                        console.log("Bing Results! -> ", res)
+                    })
+                    .catch((error)=>{
+                        console.log("Oh snap! Something bad happened: ", error);
+                    })
             })
 
 
