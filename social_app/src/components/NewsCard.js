@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card';
-// import { useState } from 'react';
+
+
 
 const NewsCard = () => {
   return (
@@ -7,7 +8,7 @@ const NewsCard = () => {
 <div id="newsCard" >
 <Card style={{ width: '30rem' }} className="mx-auto shadow-lg p-3 mb-5 bg-white rounded">
     <Card.Body>
-      <Card.Title>Card title</Card.Title>
+      <Card.Title >Article Headline</Card.Title>
       <Card.Text>
         This card has supporting text below as a natural lead-in to additional
         content.
