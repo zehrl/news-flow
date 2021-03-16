@@ -5,23 +5,22 @@ import NewsCard from "./NewsCard";
 function NewsFeed() {
 
     const [newsCards, setNewsCards] = useState([])
+    
+    const generateCards = (results) => {
+        const cards = results.map(article => {
+            return <NewsCard article={article} />
+        })
+
+        setNewsCards(cards)
+    }
 
     useEffect(() => {
         API
             .getNews("Query")
-            .then((res) => {
-                console.log("NewsFeed.js, Response: ", res);
-                const cards = res.map(article => {
-                    return <NewsCard article={article}/>
-                })
+            .then((res) => generateCards(res))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
-                setNewsCards(cards);
-
-                console.log("NewsFeed, newsCards: ", newsCards)
-            })
-
-
-    })
 
     return (
         <div>{newsCards}</div>

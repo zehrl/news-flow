@@ -96,13 +96,30 @@ const API = {
             const formattedData = value.map(article => {
                 console.log("Current Article: ", article);
 
+                // Try block to set thumbnail URL.
+                let thumbnail;
+
+                try {
+                    thumbnail = article.image.thumbnail.contentUrl;;
+                }
+                catch {
+                    console.log("Couldn't assign content url");
+                    try {
+                        thumbnail = article.provider[0].image.thumbnail.contentUrl;;
+                    }
+                    catch {
+                        console.log("Couldn't assign provider url");
+                        console.log("setting url to default: https://www.bing.com/th?id=OVFT.mEwFvhsff7PuAoBGjh5QXy&pid=News")
+                        thumbnail = "https://www.bing.com/th?id=OVFT.mEwFvhsff7PuAoBGjh5QXy&pid=News";
+                    }
+                }
                 return ({
                     url: article.url,
                     title: article.name,
                     description: article.description,
                     publishedDate: article.datePublished,
                     // thumbnail: (article.image.thumbnail.contentUrl === undefined) ? article.provider[0].image.thumbnail.contentUrl : article.image.thumbnail.contentUrl,
-                    thumbnail: "https://www.bing.com/th?id=OVFT.mEwFvhsff7PuAoBGjh5QXy&pid=News",
+                    thumbnail,
                     category: article.category,
                     provider: article.provider[0].name
                 })

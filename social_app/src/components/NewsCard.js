@@ -45,6 +45,7 @@ const NewsCard = ({article : {url, title, description, publishedDate, thumbnail,
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
             <p className="card-text">{description}</p>
+            <p className="card-text"><small class="text-muted">published by: {provider}</small></p>
             <p className="card-text"><small class="text-muted">{publishedDate}</small></p>
           </div>
         </div>
