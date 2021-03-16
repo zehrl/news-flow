@@ -17,6 +17,7 @@
     "hamburger-react": "^2.4.0",
     "morgan": "^1.10.0",
     "node-sass": "^5.0.0",
+    "nodemon": "^2.0.7",
     "path": "^0.12.7",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.1",
