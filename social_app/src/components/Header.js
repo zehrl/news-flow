@@ -1,8 +1,5 @@
 import News from '../images/news.png';
 
-
-
-
 const Header = ({ title }) => {
 
     return (

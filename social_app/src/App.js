@@ -3,7 +3,6 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import GoogleMap from './components/GoogleMap';
 import NewsCard from './components/NewsCard';
-import Bing from './components/bingNews';
 import ProfilePage from './components/ProfilePage';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
