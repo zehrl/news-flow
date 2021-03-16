@@ -7,8 +7,6 @@ const APIKEY = process.env.REACT_APP_BING_NEWS_API_KEY;
 const query = "Microsoft"
 
 
-
-
 const Bing = () => {
 
   const res = axios.get(endPoint + query, {

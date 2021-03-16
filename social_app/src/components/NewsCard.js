@@ -1,37 +1,37 @@
 import Card from 'react-bootstrap/Card';
-import Bing from '../utils/bingNews';
-import React, { useState, useEffect } from "react";
+// import Bing from '../utils/bingNews';
+// import React, { useState} from "react";
 
 
 
 const NewsCard = () => {
 
-  const [search, setSearch] = useState("newsCard");
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [url, setUrl] = useState("");
-  const [error, setError] = useState("");
+ 
+  // const [title, setTitle] = useState("");
+  // const [description, setDescription] = useState("");
+  // const [url, setUrl] = useState("");
+  // const [timeStamp, setTime] = useState("")
+  // const [error, setError] = useState("");
 
-  useEffect(() => {
-    if (!search) {
-      return;
-    }
 
-    Bing.searchTerms(search)
-      .then(res => {
-        if (res.data.length === 0) {
-          throw new Error("No results found.");
-        }
-        if (res.data.status === "error") {
-          throw new Error(res.data.message);
-        }
-        setTitle(res.data[0].value.name);
-        setUrl(res.data[0].value.url);
-        setDescription(res.data[0].value.description)
-      })
-      .catch(err => setError(err));
-  }, [search]);
-  };
+
+  //   Bing()
+  //     .then(res => {
+  //       if (res.data.length === 0) {
+  //         throw new Error("No results found.");
+  //       }
+  //       if (res.data.status === "error") {
+  //         throw new Error(res.data.message);
+  //       }
+  //       console.log(res)
+  //       setTitle(res.data[0].value.name);
+  //       setUrl(res.data[0].value.url);
+  //       setDescription(res.data[0].value.description);
+  //       setTime(res.data[0].value.datePublished);
+  //     })
+  //     .catch(err => setError(err));
+
+  
 
 
   
@@ -42,10 +42,10 @@ const NewsCard = () => {
     <Card.Body url={url}>
       <Card.Title title={title}></Card.Title>
       <Card.Text description={description}>
-        
+        {error}
       </Card.Text>
       <Card.Text>
-        <small className="text-muted">Last updated 3 mins ago</small>
+        <small className="text-muted" time={timeStamp}></small>
       </Card.Text>
     </Card.Body>
   </Card>
