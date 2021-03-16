@@ -1,4 +1,5 @@
 import axios from "axios";
+import bingDevData from "./bingDevData.json";
 
 const API = {
     getLocation: (lat, lng) => {
@@ -64,7 +65,7 @@ const API = {
 
                     console.log("Status 'NO_RESULTS from Google API'")
                     location = "No results."
-                    
+
                 }
 
                 // Development Console Logs
@@ -76,17 +77,24 @@ const API = {
     },
 
     getNews: (query) => {
-        const endPoint = "https://api.bing.microsoft.com/v7.0/news/search?mkt=en-US&q=";
-        const APIKEY = process.env.REACT_APP_BING_NEWS_API_KEY;
+        // const endPoint = "https://api.bing.microsoft.com/v7.0/news/search?mkt=en-US&q=";
+        // const APIKEY = process.env.REACT_APP_BING_NEWS_API_KEY;
 
-        return axios
-            .get(endPoint + query, {
-                headers: {
-                    'Ocp-Apim-Subscription-Key': APIKEY
-                }
-            });
+        // return axios
+        //     .get(endPoint + query, {
+        //         headers: {
+        //             'Ocp-Apim-Subscription-Key': APIKEY
+        //         }
+        //     });
+
+        return new Promise((resolve, reject) => {
+            resolve(bingDevData);
+        });
 
     }
 }
+
+
+
 
 export default API;
