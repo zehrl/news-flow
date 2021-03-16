@@ -10,9 +10,15 @@ const API = {
 
         const result_type = "";
 
+        const sortBy = "relevance"; // relevance | date
+
+        // Add bold html tag to the searched term (IN DEVELOPMENT)
+        // textDecorations = true;
+        // textFormat = html;
+
         return axios
             // https://developers.google.com/maps/documentation/geocoding/overview#ReverseGeocoding           
-            .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&result_type=${result_type}`)
+            .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&result_type=${result_type}&sortBy=${sortBy}`)
             .then((res) => {
                 let location;
                 let city, state, country;
