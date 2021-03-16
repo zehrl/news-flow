@@ -77,6 +77,7 @@ const API = {
     },
 
     getNews: (query) => {
+        // --- PRODUCTION CODE ---
         // const endPoint = "https://api.bing.microsoft.com/v7.0/news/search?mkt=en-US&q=";
         // const APIKEY = process.env.REACT_APP_BING_NEWS_API_KEY;
 
@@ -87,8 +88,27 @@ const API = {
         //         }
         //     });
 
+        // --- FOR DEVELOPMENT ---
         return new Promise((resolve, reject) => {
-            resolve(bingDevData);
+
+            const { value } = bingDevData;
+
+            const formattedData = value.map(article => {
+                console.log("Current Article: ", article);
+
+                return ({
+                    url: article.url,
+                    title: article.name,
+                    description: article.description,
+                    publishedDate: article.datePublished,
+                    // thumbnail: (article.image.thumbnail.contentUrl === undefined) ? article.provider[0].image.thumbnail.contentUrl : article.image.thumbnail.contentUrl,
+                    thumbnail: "https://www.bing.com/th?id=OVFT.mEwFvhsff7PuAoBGjh5QXy&pid=News",
+                    category: article.category,
+                    provider: article.provider[0].name
+                })
+            })
+
+            resolve(formattedData);
         });
 
     }
