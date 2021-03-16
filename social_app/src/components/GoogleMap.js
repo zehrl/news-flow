@@ -3,7 +3,7 @@ import { Loader } from "@googlemaps/js-api-loader";
 import API from '../utils/API';
 
 const GoogleMap = ({ initLat, initLng, zoom }) => {
-    
+
     let markers = [];
 
     const addMap = (divId, center, zoom) => {
@@ -17,7 +17,7 @@ const GoogleMap = ({ initLat, initLng, zoom }) => {
     }
 
     const addMarker = (map, lat, lng) => {
-        
+
         const marker = new window.google.maps.Marker({
             position: { lat, lng },
             map
@@ -28,9 +28,9 @@ const GoogleMap = ({ initLat, initLng, zoom }) => {
         return marker;
     }
 
-    const addInfoWindow = (state, country, map, marker) => {
+    const addInfoWindow = (location, map, marker) => {
         const infoWindow = new window.google.maps.InfoWindow({
-            content: `${state}, ${country}`
+            content: `${location}`
         });
 
         infoWindow.open(map, marker);
@@ -63,10 +63,25 @@ const GoogleMap = ({ initLat, initLng, zoom }) => {
         // Get location of point clicked based on latitude and longitude
         API
             .getLocation(lat, lng)
-            .then(({ state, country }) => {
-
+            .then((location) => {
                 // Add info window to the marker
-                addInfoWindow(state, country, map, marker)
+                addInfoWindow(location, map, marker);
+
+                return location;
+
+            })
+            .then((location) => {
+                
+                // FOR DEVELOPMENT PURPOSES. THIS WILL BE MOVED
+                API
+                    .getNews(location)
+                    .then((res) => {
+                        console.log("Bing Results! -> ", res)
+                    })
+                    .catch((error)=>{
+                        console.log("Oh snap! Something bad happened: ", error);
+                    })
+
             })
 
 

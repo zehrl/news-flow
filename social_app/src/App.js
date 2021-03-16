@@ -6,13 +6,8 @@ import NewsCard from './components/NewsCard';
 import Bing from './components/bingNews';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+
 function App() {
-
-  // const [] = useState()
-
-
-
-
   return (
     <Router>
       <div className="App">
