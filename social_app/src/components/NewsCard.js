@@ -1,24 +1,27 @@
-import Card from 'react-bootstrap/Card';
+import '../sass/newsCard.scss';
 // import { useState } from 'react';
 
 const NewsCard = () => {
   return (
 
-<div id="newsCard" >
-<Card style={{ width: '30rem' }} className="mx-auto shadow-lg p-3 mb-5 bg-white rounded">
-    <Card.Body>
-      <Card.Title>Card title</Card.Title>
-      <Card.Text>
-        This card has supporting text below as a natural lead-in to additional
-        content.
-      </Card.Text>
-      <Card.Text>
-        <small className="text-muted">Last updated 3 mins ago</small>
-      </Card.Text>
-    </Card.Body>
-  </Card>
-</div>
-  )
+<a href="#">
+<div className="card mb-3" style={{width: "540px", height: "150px", }}>
+  <div className="row g-0">
+    <div className="col-md-4 newsImg">
+      <img src="https://www.bing.com/th?id=OVFT.mEwFvhsff7PuAoBGjh5QXy" alt="headlineimg" style={{width: "200px", height: "150px"}} />
+    </div>
+    <div className="col-md-8">
+      <div className="card-body">
+        <h5 className="card-title">Seattle Sounders FC sign assistant</h5>
+        <p className="card-text">Seattle Sounders FC signed assistant coaches Gonzalo Pineda, Preki and Djimi Traore to contract extensions, the club announced Tuesday.</p>
+        <p className="card-text"><small className="text-muted"><em>Last updated 3 mins ago</em></small></p>
+      </div>
+    </div>
+  </div>
+</div>  
+</a>
+
+)
 
 }
 

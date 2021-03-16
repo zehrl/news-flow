@@ -25,8 +25,11 @@ function App() {
         <Router path="/ProfilePage" component={ProfilePage} />
         </switch>
         <switch />
-        <Footer />
       </div>
+      
+      <div className="footer">
+        <Footer />
+      </div>  
     </Router>
   );
 }

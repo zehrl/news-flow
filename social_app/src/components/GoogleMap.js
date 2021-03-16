@@ -89,7 +89,7 @@ const GoogleMap = ({ initLat, initLng, zoom }) => {
     return (
         <div
             id="google-map"
-            style={{ width: "100%", height: "300px", top: "88px" }}
+            style={{ width: "100%", height: "300px", top: "88px"}}
         />
     );
 };
