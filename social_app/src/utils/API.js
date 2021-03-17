@@ -1,5 +1,5 @@
 import axios from "axios";
-import bingDevData from "./bingDevData.json";
+// import bingDevData from "./bingDevData.json";
 
 const API = {
     getLocation: (lat, lng) => {
@@ -78,57 +78,93 @@ const API = {
 
     getNews: (query) => {
         // --- PRODUCTION CODE ---
-        // const endPoint = "https://api.bing.microsoft.com/v7.0/news/search?mkt=en-US&q=";
-        // const APIKEY = process.env.REACT_APP_BING_NEWS_API_KEY;
+        const endPoint = "https://api.bing.microsoft.com/v7.0/news/search?mkt=en-US&q=";
+        const APIKEY = process.env.REACT_APP_BING_NEWS_API_KEY;
 
-        // return axios
-        //     .get(endPoint + query, {
-        //         headers: {
-        //             'Ocp-Apim-Subscription-Key': APIKEY
-        //         }
-        //     });
-
-        // --- FOR DEVELOPMENT ---
-        return new Promise((resolve, reject) => {
-
-            const { value } = bingDevData;
-
-            const formattedData = value.map(article => {
-                console.log("Current Article: ", article);
-
-                // Try block to set thumbnail URL.
-                let thumbnail;
-
-                try {
-                    thumbnail = article.image.thumbnail.contentUrl;;
+        return axios
+            .get(endPoint + query, {
+                headers: {
+                    'Ocp-Apim-Subscription-Key': APIKEY
                 }
-                catch {
-                    console.log("Couldn't assign content url");
+            })
+            .then(({data: {value}}) => {
+                const formattedData = value.map(article => {
+                    // console.log("Current Article: ", article);
+
+                    // Try block to set thumbnail URL.
+                    let thumbnail;
+
                     try {
-                        thumbnail = article.provider[0].image.thumbnail.contentUrl;;
+                        thumbnail = article.image.thumbnail.contentUrl;;
                     }
                     catch {
-                        console.log("Couldn't assign provider url");
-                        console.log("setting url to default: https://www.bing.com/th?id=OVFT.mEwFvhsff7PuAoBGjh5QXy&pid=News")
-                        thumbnail = "https://www.bing.com/th?id=OVFT.mEwFvhsff7PuAoBGjh5QXy&pid=News";
+                        console.log("Couldn't assign content url");
+                        try {
+                            thumbnail = article.provider[0].image.thumbnail.contentUrl;;
+                        }
+                        catch {
+                            console.log("Couldn't assign provider url");
+                            console.log("setting url to default: https://www.bing.com/th?id=OVFT.mEwFvhsff7PuAoBGjh5QXy&pid=News")
+                            thumbnail = "https://www.bing.com/th?id=OVFT.mEwFvhsff7PuAoBGjh5QXy&pid=News";
+                        }
                     }
-                }
-                return ({
-                    url: article.url,
-                    title: article.name,
-                    description: article.description,
-                    publishedDate: article.datePublished,
-                    // thumbnail: (article.image.thumbnail.contentUrl === undefined) ? article.provider[0].image.thumbnail.contentUrl : article.image.thumbnail.contentUrl,
-                    thumbnail,
-                    category: article.category,
-                    provider: article.provider[0].name
-                })
-            })
+                    return ({
+                        url: article.url,
+                        title: article.name,
+                        description: article.description,
+                        publishedDate: article.datePublished,
+                        // thumbnail: (article.image.thumbnail.contentUrl === undefined) ? article.provider[0].image.thumbnail.contentUrl : article.image.thumbnail.contentUrl,
+                        thumbnail,
+                        category: article.category,
+                        provider: article.provider[0].name
+                    })
 
-            resolve(formattedData);
-        });
+                });
 
-    }
+                return formattedData;
+            });
+
+                // --- FOR DEVELOPMENT ---
+                // return new Promise((resolve, reject) => {
+
+                //     const { value } = bingDevData;
+
+                //     const formattedData = value.map(article => {
+                //         console.log("Current Article: ", article);
+
+                //         // Try block to set thumbnail URL.
+                //         let thumbnail;
+
+                //         try {
+                //             thumbnail = article.image.thumbnail.contentUrl;;
+                //         }
+                //         catch {
+                //             console.log("Couldn't assign content url");
+                //             try {
+                //                 thumbnail = article.provider[0].image.thumbnail.contentUrl;;
+                //             }
+                //             catch {
+                //                 console.log("Couldn't assign provider url");
+                //                 console.log("setting url to default: https://www.bing.com/th?id=OVFT.mEwFvhsff7PuAoBGjh5QXy&pid=News")
+                //                 thumbnail = "https://www.bing.com/th?id=OVFT.mEwFvhsff7PuAoBGjh5QXy&pid=News";
+                //             }
+                //         }
+                //         return ({
+                //             url: article.url,
+                //             title: article.name,
+                //             description: article.description,
+                //             publishedDate: article.datePublished,
+                //             // thumbnail: (article.image.thumbnail.contentUrl === undefined) ? article.provider[0].image.thumbnail.contentUrl : article.image.thumbnail.contentUrl,
+                //             thumbnail,
+                //             category: article.category,
+                //             provider: article.provider[0].name
+                //         })
+                //     })
+
+                //     resolve(formattedData);
+                // });
+
+            }
 }
 
 

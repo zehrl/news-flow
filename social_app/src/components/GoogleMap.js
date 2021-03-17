@@ -70,19 +70,19 @@ const GoogleMap = ({ initLat, initLng, zoom }) => {
                 return location;
 
             })
-            .then((location) => {
+            // .then((location) => {
                 
-                // FOR DEVELOPMENT PURPOSES. THIS WILL BE MOVED
-                API
-                    .getNews(location)
-                    .then((res) => {
-                        console.log("Bing Results! -> ", res)
-                    })
-                    .catch((error)=>{
-                        console.log("Oh snap! Something bad happened: ", error);
-                    })
+            //     // FOR DEVELOPMENT PURPOSES. THIS WILL BE MOVED
+            //     API
+            //         .getNews(location)
+            //         .then((res) => {
+            //             console.log("Bing Results! -> ", res)
+            //         })
+            //         .catch((error)=>{
+            //             console.log("Oh snap! Something bad happened: ", error);
+            //         })
 
-            })
+            // })
 
 
     }
@@ -99,7 +99,7 @@ const GoogleMap = ({ initLat, initLng, zoom }) => {
         loader
             .load()
             .then(() => handleAddMap())
-    });
+    }, []);
 
     return (
         <div
