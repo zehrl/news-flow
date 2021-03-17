@@ -4,7 +4,7 @@ import Footer from './components/Footer'
 import GoogleMap from './components/GoogleMap';
 import ProfilePage from './components/ProfilePage';
 import { BrowserRouter as Router } from 'react-router-dom';
-import NewsFeed from './components/newsFeed';
+import NewsFeed from './components/NewsFeed';
 
 function App() {
   return (
