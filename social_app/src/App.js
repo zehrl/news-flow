@@ -1,29 +1,33 @@
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import GoogleMap from './components/GoogleMap';
-import ProfilePage from './components/ProfilePage';
-import { BrowserRouter as Router } from 'react-router-dom';
-import NewsFeed from './components/NewsFeed';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+import ProfilePage from './pages/ProfilePage';
+import MainPage from "./pages/MainPage"
 
 function App() {
   return (
-    <Router>
+    <div>
       <div className="App">
         <Header />
-        <GoogleMap initLat={47.59764059923029} initLng={-122.32893838093258} zoom={12} />
-        <NewsFeed />
-        <switch>
-          <Router path="/" component={App} />
-          <Router path="/ProfilePage" component={ProfilePage} />
-        </switch>
-        <switch />
+        <Switch>
+          <Route path="/ProfilePage" component={ProfilePage} />
+          <Route path="/" component={MainPage} />
+        </Switch>
       </div>
 
       <div className="footer">
         <Footer />
       </div>
-    </Router>
+    </div>
+
   );
 }
 

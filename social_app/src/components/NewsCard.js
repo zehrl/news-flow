@@ -4,7 +4,7 @@ const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail
   
   return (
 
-    <a href={url}>
+    <a href={url} target="_blank">
       <div className="card mb-3" style={{ width: "540px", height: "150px", }}>
         <div className="row g-0">
           <div className="col-md-4 newsImg">
