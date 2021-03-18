@@ -1,4 +1,5 @@
 import '../sass/newsCard.scss';
+import React from 'react';
 
 const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail, category, provider } }) => {
   

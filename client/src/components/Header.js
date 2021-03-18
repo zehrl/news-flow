@@ -1,4 +1,5 @@
 import News from '../images/news.png';
+import React from 'react';
 
 const Header = ({ title }) => {
 

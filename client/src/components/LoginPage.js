@@ -2,7 +2,7 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
-
+import React from 'react';
 
 const LoginPage = () => {
 return (
