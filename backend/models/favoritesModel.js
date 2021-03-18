@@ -19,4 +19,4 @@ const favoritesDB = new mongoose.SchemaType({
     }
 })
 
-module.exports = mongoose.model('mytable', 'favoritesDB')
+module.exports = mongoose.model('mytable', favoritesDB)
