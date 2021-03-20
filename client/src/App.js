@@ -16,7 +16,7 @@ import MainPage from "./pages/MainPage"
 
 function App() {
   return (
-    <div>
+    <div className="h-100 d-flex flex-column">
       <Header />
 
       <Switch>
@@ -24,7 +24,7 @@ function App() {
         <Route path="/" component={MainPage} />
       </Switch>
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

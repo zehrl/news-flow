@@ -29,7 +29,7 @@ const NewsCard = () => {
         </img>
         <div className="d-flex flex-column flex-grow-1 align-items-stretch">
           <div className="d-flex justify-content-between align-items-start">
-            <h5 className="card-title article-title">Really important thing happened to a person you
+            <h5 className="card-title article-title me-2">Really important thing happened to a person you
                 don't really care about</h5>
             <button className="btn btn-primary save-button" type="submit">Save</button>
           </div>
