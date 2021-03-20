@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 import NewsCard from "./NewsCard";
 
-function NewsFeed() {
+function NewsFeed({location}) {
 
     const [newsCards, setNewsCards] = useState([])
-    
+
     const generateCards = (results) => {
         const cards = results.map(article => {
             return <NewsCard article={article} />
@@ -16,14 +16,16 @@ function NewsFeed() {
 
     useEffect(() => {
         API
-            .getNews("Query")
+            .getNews(location)
             .then((res) => generateCards(res))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [location])
 
 
     return (
-        <div>{newsCards}</div>
+        <div>
+            {newsCards}
+        </div>
     )
 }
 
