@@ -17,15 +17,15 @@ import NewsCard from './components/NewsCard';
 
 function App() {
   return (
-    <div>
-      {/* <Header /> */}
-      <MainPage />
-      {/* <Switch>
-        <Route path="/ProfilePage" component={ProfilePage} />
-        <Route path="/" component={MainPage} />
-      </Switch> */}
+    <div className="h-100 d-flex flex-column">
+      <Header />
 
-      {/* <Footer /> */}
+      <Switch>
+        {/* <Route path="/ProfilePage" component={ProfilePage} /> */}
+        <Route path="/" component={MainPage} />
+      </Switch>
+
+      <Footer />
     </div>
   );
 }

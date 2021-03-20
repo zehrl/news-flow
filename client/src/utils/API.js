@@ -104,10 +104,11 @@ const API = {
                         }
                         catch {
                             console.log("Couldn't assign provider url");
-                            console.log("setting url to default: https://www.bing.com/th?id=OVFT.mEwFvhsff7PuAoBGjh5QXy&pid=News")
-                            thumbnail = "https://www.bing.com/th?id=OVFT.mEwFvhsff7PuAoBGjh5QXy&pid=News";
+                            console.log("setting url to default: https://www.pinclipart.com/picdir/big/534-5342402_brown-gorilla-stuffed-toy-svg-clip-arts-gorilla.png")
+                            thumbnail = "https://www.pinclipart.com/picdir/big/534-5342402_brown-gorilla-stuffed-toy-svg-clip-arts-gorilla.png";
                         }
                     }
+
                     return ({
                         url: article.url,
                         title: article.name,

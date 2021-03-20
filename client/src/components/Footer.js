@@ -4,10 +4,9 @@ import React from 'react';
 // https://getbootstrap.com/docs/5.0/examples/sticky-footer-navbar/
 const Footer = ({ text }) => {
     return (
-        
-<div className="main-footer">
-    <h4>{text}</h4>
-</div>
+        <footer className="footer mt-auto text-center py-3 bg-dark text-light">
+            {text}
+        </footer>
     )
 }
 
@@ -16,5 +15,4 @@ Footer.defaultProps = {
 
 }
 
-
-export default Footer 
+export default Footer;

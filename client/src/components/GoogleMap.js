@@ -8,7 +8,7 @@ const GoogleMap = ({ initLat, initLng, zoom }) => {
 
     const addMap = (divId, center, zoom) => {
 
-        const map = new window.google.maps.Map(document.getElementById("google-map"), {
+        const map = new window.google.maps.Map(document.getElementById("map"), {
             center: { lat: initLat, lng: initLng },
             zoom,
         });
@@ -38,7 +38,7 @@ const GoogleMap = ({ initLat, initLng, zoom }) => {
 
     const handleAddMap = () => {
 
-        const map = addMap("google-map", { initLat, initLng }, zoom);
+        const map = addMap("map", { initLat, initLng }, zoom);
 
         // Add map click listener
         map.addListener("click", (mapsMouseEvent) => handleMapClick(mapsMouseEvent, map))
@@ -101,11 +101,9 @@ const GoogleMap = ({ initLat, initLng, zoom }) => {
             .then(() => handleAddMap())
     }, []);
 
+    // Look into id difference from map to map
     return (
-        <div
-            id="google-map"
-            style={{ width: "100%", height: "300px", top: "88px"}}
-        />
+        <div id="map"/>
     );
 };
 
