@@ -2,6 +2,7 @@
 import Header from './components/Header'
 import Footer from './components/Footer'
 import React from 'react';
+import SignUp from './components/SignUp'
 
 import {
   BrowserRouter as Router,
@@ -16,19 +17,15 @@ import MainPage from "./pages/MainPage"
 function App() {
   return (
     <div>
-      <div className="App">
-        <Header />
-        <Switch>
-          <Route path="/ProfilePage" component={ProfilePage} />
-          <Route path="/" component={MainPage} />
-        </Switch>
-      </div>
+      {/* <Header /> */}
+      <SignUp />
+      {/* <Switch>
+        <Route path="/ProfilePage" component={ProfilePage} />
+        <Route path="/" component={MainPage} />
+      </Switch> */}
 
-      <div className="footer">
-        <Footer />
-      </div>
+      {/* <Footer /> */}
     </div>
-
   );
 }
 
