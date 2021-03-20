@@ -1,7 +1,64 @@
-@import 'header';
-@import 'googleMaps';
-@import 'newsCard';
+// @import 'header';
+// @import 'googleMaps';
+// @import 'newsCard';
 
 $primaryColor : #338f95;
 $secondaryColor: #ffffff;
 
+/* Global */
+
+body {
+    height: 100vh;
+}
+
+/* Header */
+
+#header-nav {
+    background-color: #53aa7d;
+    background-image: linear-gradient(45deg, #53aa7d 0%, #00c958 100%);
+    box-shadow: 0 0px 2px rgba(0,0,0,.75);
+}
+
+/* Main */
+
+#map {
+    min-height: 580px;
+    width: 100%;
+}
+
+/* NewsFeed */
+
+/* NewsCard */
+
+.news-card, #map {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    border: none;
+}
+
+.article-thumbnail {
+    /* display: inline; */
+    object-fit: cover;
+}
+
+.article-title {
+    font-size: 1rem;
+    display: inline;
+}
+
+.save-button {
+    padding: 0px 7px;
+}
+
+
+.article-description, .article-publisher, .article-published-date {
+    font-size: .75rem;
+    line-height: 1rem;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 425px) {
+    .article-description {
+      display: none;
+    }
+  }

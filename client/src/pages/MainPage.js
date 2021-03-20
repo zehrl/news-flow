@@ -3,6 +3,11 @@ import NewsFeed from "../components/NewsFeed"
 import React from 'react';
 
 const ProfilePage = () => {
+    
+    // make state
+
+    // make function that changes the state
+
     return (
         <div>
             <GoogleMap initLat={47.59764059923029} initLng={-122.32893838093258} zoom={12} />

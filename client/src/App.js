@@ -17,8 +17,8 @@ import MainPage from "./pages/MainPage"
 function App() {
   return (
     <div>
-      {/* <Header /> */}
-      <SignUp />
+      <Header />
+
       {/* <Switch>
         <Route path="/ProfilePage" component={ProfilePage} />
         <Route path="/" component={MainPage} />
