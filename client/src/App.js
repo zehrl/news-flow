@@ -13,6 +13,7 @@ import {
 
 import ProfilePage from './pages/ProfilePage';
 import MainPage from "./pages/MainPage"
+import NewsCard from './components/NewsCard';
 import LoginForm from './components/LoginForm.js';
 // import CreateNewAccount from './components/CreateNewAccount.js';
 

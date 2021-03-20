@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Loader } from "@googlemaps/js-api-loader";
 import API from '../utils/API';
 
-const GoogleMap = ({ initLat, initLng, zoom }) => {
+const GoogleMap = ({ initLat, initLng, zoom, setLocation }) => {
 
     let markers = [];
 
@@ -66,7 +66,7 @@ const GoogleMap = ({ initLat, initLng, zoom }) => {
             .then((location) => {
                 // Add info window to the marker
                 addInfoWindow(location, map, marker);
-
+                setLocation(location);
                 return location;
 
             })
