@@ -2,7 +2,7 @@ import GoogleMap from "../components/GoogleMap"
 import NewsFeed from "../components/NewsFeed"
 import React from 'react';
 
-const ProfilePage = () => {
+const MainPage = () => {
 
     // make state
 
@@ -29,4 +29,4 @@ const ProfilePage = () => {
     )
 }
 
-export default ProfilePage
+export default MainPage;
