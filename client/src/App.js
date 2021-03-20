@@ -74,19 +74,15 @@ class LoginBox extends LoginForm{
 
 function App() {
   return (
-    <div>
-      <div className="App">
-        <LoginForm />
-        <Header />
-        <Switch>
-          <Route path="/ProfilePage" component={ProfilePage} />
-          <Route path="/" component={MainPage} />
-        </Switch>
-      </div>
+    <div className="h-100 d-flex flex-column">
+      <Header />
 
-      <div className="footer">
-        <Footer />
-      </div>
+      <Switch>
+        {/* <Route path="/ProfilePage" component={ProfilePage} /> */}
+        <Route path="/" component={MainPage} />
+      </Switch>
+
+      <Footer />
     </div>
 
   );
