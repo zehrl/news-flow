@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css"
 import axios from 'axios'
+import '../sass/signUp.css'
 
 class SignUp extends Component {
   constructor() {
@@ -55,10 +56,11 @@ class SignUp extends Component {
 
   render() {
     return (
-      <div>
+      <div id="root">
         <div className="container">
           <div className="form-div">
             <form>
+              <h1 className="title"> Sign Up </h1>
               <input type="text"
                 placeholder='Full name'
                 onChange={this.changeFullName}
@@ -84,7 +86,7 @@ class SignUp extends Component {
                 className='form-control form-group'
               />
 
-              <input type="submit" className='btn btn-danger btn-block' value='submit' />
+              <input type="submit" className='btn btn-primary btn-block' value='Submit' />
             </form>
           </div>
         </div>

@@ -1,0 +1,26 @@
+#root{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    height: 80vh;
+    width: 100vw;
+    background-size: cover;
+    padding-top: 60px;
+    background-image: url("../images/signup.jpg");
+}
+
+
+.container{
+    
+    box-shadow: rgba(158, 172, 251, 0.56) 0px 22px 70px 4px;
+    position: relative;
+    max-width: 350px;
+    margin: auto;
+    border-radius: 20px;
+    background-color: rgb(202, 202, 202);
+    padding: 20px;
+}
+
+
+.title {
+    text-align: center;
+    color: white;
+}
