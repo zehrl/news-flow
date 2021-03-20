@@ -1,5 +1,7 @@
 import React from 'react';
 
+// Sticky footer source:
+// https://getbootstrap.com/docs/5.0/examples/sticky-footer-navbar/
 const Footer = ({ text }) => {
     return (
         
