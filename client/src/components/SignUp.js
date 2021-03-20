@@ -71,7 +71,7 @@ class SignUp extends Component {
                 value={this.state.username}
                 className='form-control form-group'
               />
-              <input type="text"
+              <input type="password"
                 placeholder='password'
                 onChange={this.changePassword}
                 value={this.state.password}
