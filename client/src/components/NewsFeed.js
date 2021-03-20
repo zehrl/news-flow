@@ -16,7 +16,7 @@ function NewsFeed() {
 
     useEffect(() => {
         API
-            .getNews("Query")
+            .getNews("Seattle")
             .then((res) => generateCards(res))
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])

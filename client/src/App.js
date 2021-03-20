@@ -13,12 +13,13 @@ import {
 
 import ProfilePage from './pages/ProfilePage';
 import MainPage from "./pages/MainPage"
+import NewsCard from './components/NewsCard';
 
 function App() {
   return (
     <div>
       {/* <Header /> */}
-      <SignUp />
+      <MainPage />
       {/* <Switch>
         <Route path="/ProfilePage" component={ProfilePage} />
         <Route path="/" component={MainPage} />

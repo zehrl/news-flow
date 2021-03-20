@@ -24,7 +24,7 @@ class SignUp extends Component {
   }
   changeUsername(event){
     this.setState({
-      userame:event.target.value
+      username: event.target.value
     })
   }
   changePassword(event){
