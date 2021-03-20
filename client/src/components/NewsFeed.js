@@ -23,7 +23,7 @@ function NewsFeed() {
 
 
     return (
-        <div>{newsCards}</div>
+        <NewsCard />
     )
 }
 

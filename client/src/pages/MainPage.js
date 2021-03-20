@@ -9,19 +9,19 @@ const ProfilePage = () => {
     // make function that changes the state
 
     return (
-        <main class="flex-shrink-0 mt-5">
-            <div class="container-md mt-4">
-                <div class="row">
+        <main className="flex-shrink-0 mt-5">
+            <div className="container-md mt-4">
+                <div className="row">
                     
-                    <div class="col-xl-6 pb-3">
-                        <h1 class="text-center">Click the Map</h1>
+                    <div className="col-xl-6 pb-3">
+                        <h1 className="text-center">Click the Map</h1>
                         <GoogleMap initLat={47.59764059923029} initLng={-122.32893838093258} zoom={12} />
                     </div>
                     
-                    {/* <div class="col-xl-6 justify-content-center">
-                        <h1 class="text-center">News Feed</h1>
+                    <div className="col-xl-6 justify-content-center">
+                        <h1 className="text-center">News Feed</h1>
                         <NewsFeed />
-                    </div> */}
+                    </div>
                 
                 </div>
             </div>

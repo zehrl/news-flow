@@ -20,7 +20,7 @@ function App() {
       <Header />
 
       <Switch>
-        <Route path="/ProfilePage" component={ProfilePage} />
+        {/* <Route path="/ProfilePage" component={ProfilePage} /> */}
         <Route path="/" component={MainPage} />
       </Switch>
 
