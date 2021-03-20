@@ -101,11 +101,9 @@ const GoogleMap = ({ initLat, initLng, zoom }) => {
             .then(() => handleAddMap())
     }, []);
 
+    // Look into id difference from google-map to map
     return (
-        <div
-            id="google-map"
-            style={{ width: "100%", height: "300px", top: "88px"}}
-        />
+        <div id="google-map"/>
     );
 };
 

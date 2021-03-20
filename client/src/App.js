@@ -19,10 +19,10 @@ function App() {
     <div>
       <Header />
 
-      {/* <Switch>
+      <Switch>
         <Route path="/ProfilePage" component={ProfilePage} />
         <Route path="/" component={MainPage} />
-      </Switch> */}
+      </Switch>
 
       {/* <Footer /> */}
     </div>
