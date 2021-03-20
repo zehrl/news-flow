@@ -19,7 +19,7 @@ function NewsFeed({location}) {
             .getNews(location)
             .then((res) => generateCards(res))
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [location])
 
 
     return (
