@@ -9,7 +9,7 @@ const ProfilePage = () => {
     // make function that changes the state
 
     return (
-        <main className="flex-shrink-0 mt-5">
+        <main className="mt-5">
             <div className="container-md mt-4">
                 <div className="row">
                     

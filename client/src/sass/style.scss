@@ -29,8 +29,8 @@ body {
 }
 
 .article-thumbnail {
-    /* display: inline; */
     object-fit: cover;
+    max-width: 100px;
 }
 
 .article-title {

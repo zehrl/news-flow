@@ -5,7 +5,7 @@ import NewsCard from "./NewsCard";
 function NewsFeed() {
 
     const [newsCards, setNewsCards] = useState([])
-    
+
     const generateCards = (results) => {
         const cards = results.map(article => {
             return <NewsCard article={article} />
@@ -18,12 +18,14 @@ function NewsFeed() {
         API
             .getNews("Query")
             .then((res) => generateCards(res))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
     return (
-        <NewsCard />
+        <div>
+            {newsCards}
+        </div>
     )
 }
 
