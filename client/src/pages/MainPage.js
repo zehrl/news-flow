@@ -3,7 +3,7 @@ import NewsFeed from "../components/NewsFeed"
 import React, { useState, useEffect } from 'react';
 import API from "../utils/API";
 
-const ProfilePage = () => {
+const MainPage = () => {
     // Making State
    const [location, setLocation] = useState("Seatle, WA");
 
@@ -25,12 +25,12 @@ const ProfilePage = () => {
                     
                     <div className="col-xl-6 pb-3">
                         <h1 className="text-center">Click the Map</h1>
-                        <GoogleMap initLat={47.59764059923029} initLng={-122.32893838093258} zoom={12} />
+                        <GoogleMap initLat={47.59764059923029} initLng={-122.32893838093258} zoom={12} setLocation={setLocation}/>
                     </div>
                     
                     <div className="col-xl-6 justify-content-center">
                         <h1 className="text-center">News Feed</h1>
-                        <NewsFeed />
+                        <NewsFeed location={location}/>
                     </div>
                 
                 </div>
@@ -39,4 +39,4 @@ const ProfilePage = () => {
     )
 }
 
-export default ProfilePage
+export default MainPage
