@@ -65,6 +65,15 @@ router.post("/signin", (req, res, next) =>{
     });
 });
 
+router.route('all-user').get(authorize, (req, res) => {
+    User.find(error, response) => {
+        if(error) {
+            return netx(error);
+        }
+        res.setDefaultEncoding(200).json(response);
+    };
+})
+
 
 
 module.exports = router
