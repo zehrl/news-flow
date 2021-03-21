@@ -89,7 +89,7 @@ const API = {
             })
             .then(({data: {value}}) => {
                 const formattedData = value.map(article => {
-                    // console.log("Current Article: ", article);
+                    console.log("Current Article: ", article);
 
                     // Try block to set thumbnail URL.
                     let thumbnail;

@@ -2,7 +2,7 @@
 import Header from './components/Header'
 import Footer from './components/Footer'
 import React from 'react';
-import SignUp from './components/SignUp'
+// import SignInModal from './components/SignInModal'
 
 import {
   BrowserRouter as Router,
@@ -13,6 +13,65 @@ import {
 
 import ProfilePage from './pages/ProfilePage';
 import MainPage from "./pages/MainPage"
+import NewsCard from './components/NewsCard';
+import LoginForm from './components/LoginForm.js';
+// import CreateNewAccount from './components/CreateNewAccount.js';
+
+import {
+  Navbar,
+  NavDropdown,
+  MenuItem,
+  NavItem,
+  Nav,
+  Popover,
+  Tooltip,
+  Button,
+  Modal,
+  OverlayTrigger
+} from 'react-bootstrap';
+
+const styles = {
+  fontFamily: 'sans-serif',
+  textAlign: 'center',
+};
+
+
+class LoginBox extends LoginForm{
+  constructor(){
+    super();
+    this.state = {
+      showModal : false,
+      form : ''
+    }
+  }
+
+  close = () => {
+    this.setState ({ showModal: false });
+  }
+
+
+
+  open = () => {
+    this.setState ({ showModal : true});
+  }
+
+
+  render(){
+    const isLoggedIn = this.state.isLoggedIn;
+
+    return (
+      <div style={styles}>
+        <Button type="button" className="btn btn-default" onClick={this.open}>
+          Login
+        </Button>
+        <LoginForm showModal={this.state.showModal} onClose = {this.close} />
+       <LoginBox />;
+     </div>
+    );
+  }
+}
+
+
 
 function App() {
   return (
@@ -26,6 +85,7 @@ function App() {
 
       <Footer />
     </div>
+
   );
 }
 

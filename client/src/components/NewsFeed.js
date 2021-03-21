@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 import NewsCard from "./NewsCard";
 
-function NewsFeed() {
+function NewsFeed({location}) {
 
     const [newsCards, setNewsCards] = useState([])
 
@@ -16,10 +16,10 @@ function NewsFeed() {
 
     useEffect(() => {
         API
-            .getNews("Query")
+            .getNews(location)
             .then((res) => generateCards(res))
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [location])
 
 
     return (

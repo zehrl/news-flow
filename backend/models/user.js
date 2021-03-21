@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const signUpTemplate = new mongoose.Schema({
+const userSchema = new Schema({
     fullName: {
         type:String,
         required:true
@@ -20,4 +21,6 @@ const signUpTemplate = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('mytable', signUpTemplate)
+const User = mongoose.model('users', userSchema);
+
+module.exports = User;
