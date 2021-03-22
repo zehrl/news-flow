@@ -13,7 +13,7 @@ body {
 
 /* Main */
 #map {
-  min-height: 580px;
+  height: 900px;
   width: 100%;
 }
 
@@ -67,4 +67,11 @@ body {
     height: 70px;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  #map {
+    height: 580px;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

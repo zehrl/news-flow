@@ -100,7 +100,7 @@ const API = {
                     let date = new Date(article.datePublished)
                     date = date.toLocaleDateString(undefined, options)
 
-                    // Try block to set thumbnail URL.
+                    // Try-block to set thumbnail URL.
                     let thumbnail;
 
                     try {

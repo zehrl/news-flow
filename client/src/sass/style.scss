@@ -15,7 +15,7 @@ body {
 /* Main */
 
 #map {
-    min-height: 580px;
+    min-height: 900px;
     width: 100%;
 }
 
@@ -69,5 +69,9 @@ body {
 
     .article-thumbnail {
         height: 70px;
+    }
+
+    #map {
+        height: 580px;
     }
   }
