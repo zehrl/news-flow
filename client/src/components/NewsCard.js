@@ -5,24 +5,7 @@ const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail
 
   return (
 
-    // <a href={url} target="_blank">
-    //   <div className="card mb-3" style={{ width: "540px", height: "150px", }}>
-    //     <div className="row g-0">
-    //       <div className="col-md-4 newsImg">
-    //         <img src={thumbnail} alt="Headline" style={{ width: "200px", height: "150px" }} />
-    //       </div>
-    //       <div className="col-md-8">
-    //         <div className="card-body">
-    //           <h5 className="card-title">{title}</h5>
-    //           <p className="card-text">{description}</p>
-    //           <p className="card-text"><small className="text-muted"><em>{publishedDate}</em></small></p>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </a>
-
-    <div className="card mb-3 news-card" style={{maxWidth: "600px", margin: "auto"}}>
+    <a href={url} target="_blank" rel="noopener noreferrer" className="card mb-3 news-card" style={{maxWidth: "600px", margin: "auto"}}>
       <div className="card-body d-flex">
         <img className="me-3 rounded article-thumbnail"
           src={thumbnail} alt="...">
@@ -47,7 +30,7 @@ const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail
           </div>
         </div>
       </div>
-    </div>
+    </a>
 
   )
 

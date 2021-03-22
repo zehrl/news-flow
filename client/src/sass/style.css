@@ -25,6 +25,19 @@ body {
   border: none;
 }
 
+.news-card, .news-card:hover, .news-card:focus, .news-card:active {
+  text-decoration: none;
+  color: inherit;
+  -webkit-transition: background-color 300ms ease-out;
+  transition: background-color 300ms ease-out;
+}
+
+.news-card:hover {
+  background-color: rgba(130, 101, 235, 0.1);
+  -webkit-transition: all 50ms ease-out;
+  transition: all 50ms ease-out;
+}
+
 .article-thumbnail {
   -o-object-fit: cover;
      object-fit: cover;

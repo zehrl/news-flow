@@ -28,6 +28,17 @@ body {
     border: none;
 }
 
+.news-card, .news-card:hover, .news-card:focus, .news-card:active {
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 300ms ease-out;
+}
+
+.news-card:hover {
+    background-color: rgba(130, 101, 235, 0.1);
+    transition: all 50ms ease-out;
+}
+
 .article-thumbnail {
     object-fit: cover;
     max-width: 100px;
