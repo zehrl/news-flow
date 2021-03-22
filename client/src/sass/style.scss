@@ -42,6 +42,7 @@ body {
 .article-thumbnail {
     object-fit: cover;
     max-width: 100px;
+    // height: 100%;
 }
 
 .article-title {
@@ -64,5 +65,9 @@ body {
 @media only screen and (max-width: 425px) {
     .article-description {
       display: none;
+    }
+
+    .article-thumbnail {
+        height: 70px;
     }
   }

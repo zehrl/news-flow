@@ -63,5 +63,8 @@ body {
   .article-description {
     display: none;
   }
+  .article-thumbnail {
+    height: 70px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
