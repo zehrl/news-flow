@@ -1,23 +1,26 @@
 /* eslint-disable no-unused-vars */
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const user = new mongoose.Schema({
+const userSchema = new Schema({
     fullName: {
-        type:String,
+        type: String,
         required:true
     },
     email:{
-        type:String,
+        type: String,
         required:true
     },
     password:{
-        type:String,
+        type: String,
         required:true
     },
     date:{
-        type:Date,
+        type: Date,
         default:Date.now
     }
 })
 
-module.exports = mongoose.model('userTable', user)
+const User = mongoose.model('users', userSchema);
+
+module.exports = User;
