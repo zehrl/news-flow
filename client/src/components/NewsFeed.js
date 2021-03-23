@@ -23,7 +23,7 @@ function NewsFeed({location}) {
 
 
     return (
-        <div>
+        <div className="card-container overflow-auto">
             {newsCards}
         </div>
     )

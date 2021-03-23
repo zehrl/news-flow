@@ -2,33 +2,15 @@
 import Header from './components/Header'
 import Footer from './components/Footer'
 import React from 'react';
-import SignInModal from './components/SignInModal'
-
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-
+// import SignInModal from './components/SignInModal'
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import ProfilePage from './pages/ProfilePage';
 import MainPage from "./pages/MainPage"
 import NewsCard from './components/NewsCard';
 import LoginForm from './components/LoginForm.js';
 // import CreateNewAccount from './components/CreateNewAccount.js';
-
-import {
-  Navbar,
-  NavDropdown,
-  MenuItem,
-  NavItem,
-  Nav,
-  Popover,
-  Tooltip,
-  Button,
-  Modal,
-  OverlayTrigger
-} from 'react-bootstrap';
+import {Navbar, NavDropdown, MenuItem, NavItem, Nav, Popover, Tooltip, Button, Modal, OverlayTrigger} from 'react-bootstrap';
+import SignUp from './pages/SignUp';
 
 const styles = {
   fontFamily: 'sans-serif',
@@ -79,7 +61,8 @@ function App() {
       <Header />
 
       <Switch>
-        {/* <Route path="/ProfilePage" component={ProfilePage} /> */}
+        <Route path="/ProfilePage" component={ProfilePage} />
+        <Route path="/SignUp" component={SignUp} />
         <Route path="/" component={MainPage} />
       </Switch>
 

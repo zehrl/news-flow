@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Loader } from "@googlemaps/js-api-loader";
 import API from '../utils/API';
+import '../sass/style.scss';
 
 const GoogleMap = ({ initLat, initLng, zoom, setLocation }) => {
 

@@ -18,9 +18,11 @@ const Header = () => {
 
                 <div className="collapse navbar-collapse justify-content-end" id="header-nav-links">
                         <ul className="navbar-nav">
-
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">profile</a>
+                            <a className="nav-link active" aria-current="page" href="/SignUp">SignUp</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/ProfilePage">profile</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#">saved posts</a>
