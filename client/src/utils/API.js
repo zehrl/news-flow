@@ -87,11 +87,20 @@ const API = {
                     'Ocp-Apim-Subscription-Key': APIKEY
                 }
             })
-            .then(({data: {value}}) => {
+            .then(({ data: { value } }) => {
                 const formattedData = value.map(article => {
                     console.log("Current Article: ", article);
 
-                    // Try block to set thumbnail URL.
+                    // Format date to "M/DD/YY"
+                    const options = {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    }
+                    let date = new Date(article.datePublished)
+                    date = date.toLocaleDateString(undefined, options)
+
+                    // Try-block to set thumbnail URL.
                     let thumbnail;
 
                     try {
@@ -109,11 +118,13 @@ const API = {
                         }
                     }
 
+                    
+
                     return ({
                         url: article.url,
                         title: article.name,
                         description: article.description,
-                        publishedDate: article.datePublished,
+                        publishedDate: date,
                         // thumbnail: (article.image.thumbnail.contentUrl === undefined) ? article.provider[0].image.thumbnail.contentUrl : article.image.thumbnail.contentUrl,
                         thumbnail,
                         category: article.category,
@@ -125,47 +136,47 @@ const API = {
                 return formattedData;
             });
 
-                // --- FOR DEVELOPMENT ---
-                // return new Promise((resolve, reject) => {
+        // --- FOR DEVELOPMENT ---
+        // return new Promise((resolve, reject) => {
 
-                //     const { value } = bingDevData;
+        //     const { value } = bingDevData;
 
-                //     const formattedData = value.map(article => {
-                //         console.log("Current Article: ", article);
+        //     const formattedData = value.map(article => {
+        //         console.log("Current Article: ", article);
 
-                //         // Try block to set thumbnail URL.
-                //         let thumbnail;
+        //         // Try block to set thumbnail URL.
+        //         let thumbnail;
 
-                //         try {
-                //             thumbnail = article.image.thumbnail.contentUrl;;
-                //         }
-                //         catch {
-                //             console.log("Couldn't assign content url");
-                //             try {
-                //                 thumbnail = article.provider[0].image.thumbnail.contentUrl;;
-                //             }
-                //             catch {
-                //                 console.log("Couldn't assign provider url");
-                //                 console.log("setting url to default: https://www.bing.com/th?id=OVFT.mEwFvhsff7PuAoBGjh5QXy&pid=News")
-                //                 thumbnail = "https://www.bing.com/th?id=OVFT.mEwFvhsff7PuAoBGjh5QXy&pid=News";
-                //             }
-                //         }
-                //         return ({
-                //             url: article.url,
-                //             title: article.name,
-                //             description: article.description,
-                //             publishedDate: article.datePublished,
-                //             // thumbnail: (article.image.thumbnail.contentUrl === undefined) ? article.provider[0].image.thumbnail.contentUrl : article.image.thumbnail.contentUrl,
-                //             thumbnail,
-                //             category: article.category,
-                //             provider: article.provider[0].name
-                //         })
-                //     })
+        //         try {
+        //             thumbnail = article.image.thumbnail.contentUrl;;
+        //         }
+        //         catch {
+        //             console.log("Couldn't assign content url");
+        //             try {
+        //                 thumbnail = article.provider[0].image.thumbnail.contentUrl;;
+        //             }
+        //             catch {
+        //                 console.log("Couldn't assign provider url");
+        //                 console.log("setting url to default: https://www.bing.com/th?id=OVFT.mEwFvhsff7PuAoBGjh5QXy&pid=News")
+        //                 thumbnail = "https://www.bing.com/th?id=OVFT.mEwFvhsff7PuAoBGjh5QXy&pid=News";
+        //             }
+        //         }
+        //         return ({
+        //             url: article.url,
+        //             title: article.name,
+        //             description: article.description,
+        //             publishedDate: article.datePublished,
+        //             // thumbnail: (article.image.thumbnail.contentUrl === undefined) ? article.provider[0].image.thumbnail.contentUrl : article.image.thumbnail.contentUrl,
+        //             thumbnail,
+        //             category: article.category,
+        //             provider: article.provider[0].name
+        //         })
+        //     })
 
-                //     resolve(formattedData);
-                // });
+        //     resolve(formattedData);
+        // });
 
-            }
+    }
 }
 
 
