@@ -1,4 +1,4 @@
-import News from '../images/news.png';
+// import gorillalogo from "../images/gorillalogo.png";
 import React from 'react';
 
 const Header = () => {
