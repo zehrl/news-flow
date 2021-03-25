@@ -1,6 +1,7 @@
 import React from 'react';
 import '../images/logo.png';
 
+
 const Header = () => {
 
     return (
@@ -8,6 +9,7 @@ const Header = () => {
             <nav className="navbar navbar-expand-sm navbar-dark fixed-top" id="header-nav">
                 <div className="container-fluid">
                 <img id="logo" src="../images/logo" alt="logo" />
+
                 <a className="navbar-brand" id="nav-title" href="/">News Flow</a>
 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
