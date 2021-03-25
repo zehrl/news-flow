@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import API from "../utils/API";
+import thirdPartyAPI from "../utils/thirdPartyAPI";
 import NewsCard from "./NewsCard";
 
 function NewsFeed({location}) {
@@ -15,7 +15,7 @@ function NewsFeed({location}) {
     }
 
     useEffect(() => {
-        API
+        thirdPartyAPI
             .getNews(location)
             .then((res) => generateCards(res))
         // eslint-disable-next-line react-hooks/exhaustive-deps

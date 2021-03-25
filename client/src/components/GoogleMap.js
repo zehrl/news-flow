@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Loader } from "@googlemaps/js-api-loader";
-import API from '../utils/API';
+import thirdPartyAPI from "../utils/thirdPartyAPI"
 import '../sass/style.scss';
 
 const GoogleMap = ({ initLat, initLng, zoom, setLocation }) => {
@@ -62,7 +62,7 @@ const GoogleMap = ({ initLat, initLng, zoom, setLocation }) => {
         }
 
         // Get location of point clicked based on latitude and longitude
-        API
+        thirdPartyAPI
             .getLocation(lat, lng)
             .then((location) => {
                 // Add info window to the marker
