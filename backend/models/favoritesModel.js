@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const favoritesDB = new mongoose.SchemaType({
+const FavoritesSchema = new mongoose.SchemaType({
     email: {
         type:String,
         requried: true
@@ -19,4 +19,4 @@ const favoritesDB = new mongoose.SchemaType({
     }
 })
 
-module.exports = mongoose.model('mytable', favoritesDB)
+module.exports = mongoose.model('mytable', FavoritesSchema);

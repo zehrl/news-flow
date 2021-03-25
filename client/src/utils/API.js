@@ -58,7 +58,6 @@ class API {
         return this.axios.post("/api/authenticated");
 
     }
-
 }
 
 export default new API();

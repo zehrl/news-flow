@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 
-import API from "./API";
+import API from "./api";
 import { useStoreContext } from "../store";
 import { LOGIN_USER, LOGOUT_USER } from "../store/actions";
 
