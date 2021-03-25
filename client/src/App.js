@@ -11,6 +11,7 @@ import LoginForm from './components/LoginForm.js';
 // import CreateNewAccount from './components/CreateNewAccount.js';
 import {Navbar, NavDropdown, MenuItem, NavItem, Nav, Popover, Tooltip, Button, Modal, OverlayTrigger} from 'react-bootstrap';
 import SignUp from './pages/SignUp';
+import LoginPage from './pages/LoginPage';
 
 const styles = {
   fontFamily: 'sans-serif',
@@ -63,6 +64,7 @@ function App() {
       <Switch>
         <Route path="/ProfilePage" component={ProfilePage} />
         <Route path="/SignUp" component={SignUp} />
+        <Route path="/Login" component={LoginPage} />
         <Route path="/" component={MainPage} />
       </Switch>
 
