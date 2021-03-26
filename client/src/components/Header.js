@@ -1,5 +1,5 @@
-// import gorillalogo from "../images/gorillalogo.png";
 import React from 'react';
+import '../images/logo.png';
 
 
 const Header = () => {
@@ -8,6 +8,7 @@ const Header = () => {
         <header>
             <nav className="navbar navbar-expand-sm navbar-dark fixed-top" id="header-nav">
                 <div className="container-fluid">
+                <img id="logo" src="../images/logo" alt="logo" />
 
                 <a className="navbar-brand" id="nav-title" href="/">News Flow</a>
 
@@ -23,7 +24,7 @@ const Header = () => {
                             <a className="nav-link active" aria-current="page" href="/SignUp">SignUp</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="/ProfilePage">profile</a>
+                            <a className="nav-link active" aria-current="page" href="/Login">Login</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#">saved posts</a>

@@ -7,6 +7,7 @@ import ProfilePage from './pages/ProfilePage';
 import MainPage from "./pages/MainPage"
 import SignUp from './pages/SignUp';
 import { useAuthTokenStore } from "./utils/auth";
+import LoginPage from './pages/LoginPage';
 
 const styles = {
   fontFamily: 'sans-serif',
@@ -24,6 +25,7 @@ function App() {
       <Switch>
         <Route path="/ProfilePage" component={ProfilePage} />
         <Route path="/SignUp" component={SignUp} />
+        <Route path="/Login" component={LoginPage} />
         <Route path="/" component={MainPage} />
       </Switch>
 
