@@ -5,7 +5,6 @@ import React from 'react';
 import {Switch, Route} from "react-router-dom";
 import ProfilePage from './pages/ProfilePage';
 import MainPage from "./pages/MainPage";
-import MainPage from "./pages/MainPage"
 import SignUp from './pages/SignUp';
 import { useAuthTokenStore } from "./utils/auth";
 import LoginPage from './pages/LoginPage';

@@ -1,7 +1,7 @@
 import GoogleMap from "../components/GoogleMap"
 import NewsFeed from "../components/NewsFeed"
 import React, { useState, useEffect } from 'react';
-import API from "../utils/API";
+// import API from "../utils/api";
 import '../sass/mainPage.css';
 import thirdPartyAPI from "../utils/thirdPartyAPI";
 

@@ -8,16 +8,16 @@ import SaveCard from '../components/SaveCard';
 const ProfilePage = () => {
     
 
-    useEffect (() => {
-        loadFavorites()
-    }, [])
+    // useEffect (() => {
+    //     loadFavorites()
+    // }, [])
   
-    function loadFavorites() {
-        favoriteAPI.getFavorites()
-        .then(res =>
-            setFavorites(res.data))
-            .catch(err => console.log(err));
-    };
+    // function loadFavorites() {
+    //     favoriteAPI.getFavorites()
+    //     .then(res =>
+    //         setFavorites(res.data))
+    //         .catch(err => console.log(err));
+    // };
 
   
     
