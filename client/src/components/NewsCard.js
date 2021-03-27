@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import favoriteAPI from '../utils/favoriteAPI';
 
 const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail, category, provider } }) => {
