@@ -1,9 +1,15 @@
-import Nav from "../components/Nav"
 import React from 'react';
+import Header from '../components/Header';
+import SaveCard from '../components/SaveCard';
+
+
 
 const ProfilePage = () => {
     return (
-        <Nav />
+        <div>
+            <Header />
+            <SaveCard />
+        </div>
     )
 }
 

@@ -2,6 +2,7 @@ import GoogleMap from "../components/GoogleMap"
 import NewsFeed from "../components/NewsFeed"
 import React, { useState, useEffect } from 'react';
 import API from "../utils/API";
+import '../sass/mainPage.css';
 
 const MainPage = () => {
     // Making State
@@ -24,12 +25,12 @@ const MainPage = () => {
                 <div className="row">
                     
                     <div className="col-xl-6 pb-3">
-                        <h1 className="text-center">Click the Map</h1>
+                        <h1 id="map-text" className="text-center">Click the Map</h1>
                         <GoogleMap initLat={47.59764059923029} initLng={-122.32893838093258} zoom={12} setLocation={setLocation}/>
                     </div>
                     
                     <div className="col-xl-6 justify-content-center">
-                        <h1 className="text-center">News Feed</h1>
+                        <h1 id="news-text" className="text-center">News Feed</h1>
                         <NewsFeed location={location}/>
                     </div>
                 

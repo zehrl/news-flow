@@ -104,12 +104,12 @@ const API = {
                     let thumbnail;
 
                     try {
-                        thumbnail = article.image.thumbnail.contentUrl;;
+                        thumbnail = article.image.thumbnail.contentUrl;
                     }
                     catch {
                         console.log("Couldn't assign content url");
                         try {
-                            thumbnail = article.provider[0].image.thumbnail.contentUrl;;
+                            thumbnail = article.provider[0].image.thumbnail.contentUrl;
                         }
                         catch {
                             console.log("Couldn't assign provider url");
