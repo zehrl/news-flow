@@ -1,4 +1,6 @@
 import React from 'react';
+import '../sass/newsCard.css';
+
 
 const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail, category, provider } }) => {
 // const NewsCard = () => { 
@@ -6,9 +8,7 @@ const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail
 
     <a href={url} target="_blank" rel="noopener noreferrer" className="card mb-3 news-card" style={{maxWidth: "600px", margin: "auto"}}>
       <div className="card-body d-flex">
-        <img className="me-3 rounded article-thumbnail"
-          src={thumbnail} alt="...">
-        </img>
+        <img className="me-3 rounded article-thumbnail" src={thumbnail} alt="..." />
         <div className="d-flex flex-column flex-grow-1 align-items-stretch">
           <div className="d-flex justify-content-between align-items-start mb-2">
             <h5 className="card-title article-title mb-0 me-2">{title}</h5>

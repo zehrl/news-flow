@@ -1,5 +1,5 @@
 import React from 'react';
-import navbar from '../sass/navbar.css';
+import '../sass/navbar.css';
 import logo from '../images/logo.png';
 
 
@@ -11,7 +11,6 @@ const Header = () => {
                 <div className="container-fluid">
 
                 <img id="logo" src={logo} alt="logo"  />
-                <img id="logo" src="../images/logo" alt="logo" />
                 <a className="navbar-brand" id="nav-title" href="/">News Flow</a>
 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -32,7 +31,7 @@ const Header = () => {
                             <a className="nav-link" href="/ProfilePage">Profile</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">sign out</a>
+                            <a className="nav-link" href="/Login">sign out</a>
                         </li>
                     </ul>
                 </div>

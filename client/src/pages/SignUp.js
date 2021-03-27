@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css"
 import '../sass/signUp.css'
 import api from '../utils/api';
-import axios from 'axios';
 
 class SignUp extends Component {
   constructor() {
