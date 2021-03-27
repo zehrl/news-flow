@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 export default {
     getFavorites: function(email) {
         return axios.get("/api/favorites", + email);
