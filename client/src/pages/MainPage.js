@@ -28,7 +28,6 @@ const MainPage = () => {
 
                         <h1 id="map-text" className="text-center">Click the Map</h1>
                         <GoogleMap initLat={47.59764059923029} initLng={-122.32893838093258} zoom={12} setLocation={setLocation}/>
-
                     </div>
 
                     <div className="col-xl-6 justify-content-center">

@@ -9,10 +9,10 @@ import SignUp from './pages/SignUp';
 import { useAuthTokenStore } from "./utils/auth";
 import LoginPage from './pages/LoginPage';
 
-const styles = {
-  fontFamily: 'sans-serif',
-  textAlign: 'center',
-};
+// const styles = {
+//   fontFamily: 'sans-serif',
+//   textAlign: 'center',
+// };
 
 function App() {
   // Use the hook to reauthenticate stored tokens.
