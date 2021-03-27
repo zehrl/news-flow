@@ -34,8 +34,12 @@ class API {
      * @returns {Promise}
      */
     register( userData ) {
-
-        return this.axios.post("/api/register", userData);
+        try {
+            return this.axios.post("/api/register", userData);
+        }
+        catch ( error ) {
+            throw error
+        }
 
     }
 

@@ -1,39 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import favoriteAPI from '../utils/favoriteAPI';
+import React from 'react';
 
-const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail, category, provider } }) => {
-// const NewsCard = () => { 
-
-
-  const [favorites, setFavorites] = useState ([])
-
-  useEffect (() => {
-    loadFavorites()
-}, [])
-
-function loadFavorites() {
-    favoriteAPI.getFavorites()
-    .then(res =>
-        setFavorites(res.data))
-        .catch(err => console.log(err));
-};
-
-function saveFavorite(articleData) {
-  favoriteAPI.saveArticle(articleData)
-  .then(res => setFavorites(res.data))
-  .catch(err=> console.log(err))
-}
-
-  function deleteFavorite(id) {
-      favoriteAPI.deleteFavorite(id) 
-          .then(res => loadFavorites())
-          .catch(err => console.log(err));
-  };
-
-
+const SaveCard = ({ savedArticle: { title, description, publishedDate, thumbnail, category, provider } }) => {
+// const SaveCard = () => { 
   return (
 
-    <a href={url} target="_blank" rel="noopener noreferrer" className="card mb-3 news-card" style={{maxWidth: "600px", margin: "auto"}}>
+    // <a href={url} target="_blank" rel="noopener noreferrer" className="card mb-3 news-card" style={{maxWidth: "600px", margin: "auto"}}>
       <div className="card-body d-flex">
         <img className="me-3 rounded article-thumbnail"
           src={thumbnail} alt="...">
@@ -58,10 +29,10 @@ function saveFavorite(articleData) {
           </div>
         </div>
       </div>
-    </a>
+    // </a>
 
   )
 
 }
 
-export default NewsCard
+export default SaveCard

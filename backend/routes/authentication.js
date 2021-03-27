@@ -91,7 +91,7 @@ router.post("/login", validateBodyWith( loginValidator ), async (req, res) => {
  * Creates a new user for authentication
  */
 router.post("/register", validateBodyWith( registerValidator ), async (req, res) => {
-
+  console.log(req.body);
   try {
 
     const { email, password, fullName } = req.body;

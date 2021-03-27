@@ -1,6 +1,9 @@
-import Nav from "../components/Nav"
 import React, {useState, useEffect} from 'react';
 import favoriteAPI from '../utils/favoriteAPI';
+import Header from '../components/Header';
+import SaveCard from '../components/SaveCard';
+
+
 
 const ProfilePage = () => {
     
@@ -19,7 +22,10 @@ const ProfilePage = () => {
   
     
     return (
-        <Nav />
+        <div>
+            <Header />
+            <SaveCard />
+        </div>
     )
 }
 
