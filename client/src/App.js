@@ -1,9 +1,10 @@
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from './components/Header';
+import Footer from './components/Footer';
 import React from 'react';
 import {Switch, Route} from "react-router-dom";
 import ProfilePage from './pages/ProfilePage';
+import MainPage from "./pages/MainPage";
 import MainPage from "./pages/MainPage"
 import SignUp from './pages/SignUp';
 import { useAuthTokenStore } from "./utils/auth";

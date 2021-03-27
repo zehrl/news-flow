@@ -1,10 +1,10 @@
 import React from 'react';
 
-const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail, category, provider } }) => {
-// const NewsCard = () => { 
+const SaveCard = ({ savedArticle: { title, description, publishedDate, thumbnail, category, provider } }) => {
+// const SaveCard = () => { 
   return (
 
-    <a href={url} target="_blank" rel="noopener noreferrer" className="card mb-3 news-card" style={{maxWidth: "600px", margin: "auto"}}>
+    // <a href={url} target="_blank" rel="noopener noreferrer" className="card mb-3 news-card" style={{maxWidth: "600px", margin: "auto"}}>
       <div className="card-body d-flex">
         <img className="me-3 rounded article-thumbnail"
           src={thumbnail} alt="...">
@@ -29,10 +29,10 @@ const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail
           </div>
         </div>
       </div>
-    </a>
+    // </a>
 
   )
 
 }
 
-export default NewsCard
+export default SaveCard
