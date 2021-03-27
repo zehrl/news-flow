@@ -1,8 +1,7 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css"
 import '../sass/signUp.css'
 import API from '../utils/api';
-import axios from 'axios';
 
 const SignUp = () => {
 

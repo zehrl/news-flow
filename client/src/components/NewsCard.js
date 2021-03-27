@@ -42,7 +42,7 @@ function saveFavorite(articleData) {
         <div className="d-flex flex-column flex-grow-1 align-items-stretch">
           <div className="d-flex justify-content-between align-items-start mb-2">
             <h5 className="card-title article-title mb-0 me-2">{title}</h5>
-            <button id="saveBtn" className="btn btn-primary save-button" type="submit">Save</button>
+            <a href="https://google.com" target="_blank" rel="noopener noreferrer"><button id="saveBtn" className="btn btn-primary save-button" type="submit">Save</button></a>
           </div>
           <p className="card-text article-description mb-1">{description}</p>
 

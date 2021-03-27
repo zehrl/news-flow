@@ -1,63 +1,59 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import axios from 'axios';
 import '../sass/signUp.css';
 import API from '../utils/api';
+import { useHistory } from "react-router-dom";
 
 
-class LoginPage extends Component {
-  constructor() {
-    super()
-    this.state = {
-      email: '',
-      password: ''
-    }
-    this.enterPassword = this.enterPassword.bind(this)
-    this.enterEmail = this.enterEmail.bind(this)
+const LoginPage = () => {
+  
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const history = useHistory();
+
+ const enterPassword = (event) => {
+    setPassword(event.target.value)
   }
 
+  const enterEmail = (event) => {
 
-
-  enterPassword(event){
-    this.setState({
-      password:event.target.value
-    })
-  }
-  enterEmail(event){
-    this.setState({
-      email:event.target.value
-    })
+    setEmail(event.target.value)
   }
 
-  handleSubmit(event) {
+ const handleSubmit = (event) => {
     event.preventDefault();
 
-    const userData = {
-      password: this.state.password,
-      email: this.state.email
-    }
+    const userData = {password, email}
     
-    API.login(userData).then(res=>{console.log(res)})
+    API
+    .login(userData)
+    .then(res=>
+      {
+        console.log(res)
+        history.push("/");
+      }).catch(err => {
+        alert(err)
+      })
 
-  } 
+   
+} 
 
-  render() {
     return (
       <div id="root">
         <div className="container">
           <div className="form-div">
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={handleSubmit}>
               <h1 className="title"> Login </h1>
               <input type="text"
                 placeholder='E-mail'
-                onChange={this.enterEmail}
-                value={this.state.email}
+                onChange={enterEmail}
+                value={email}
                 className='form-control form-group'
               />
               <input type="password"
                 placeholder='password'
-                onChange={this.enterPassword}
-                value={this.state.password}
+                onChange={enterPassword}
+                value={password}
                 className='form-control form-group'
               />
 
@@ -69,6 +65,5 @@ class LoginPage extends Component {
 
     )
   }
-}
 
 export default LoginPage

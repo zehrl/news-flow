@@ -20,6 +20,10 @@ const FavoritesSchema = new mongoose.SchemaType({
     description: {
         type: String,
         required: true
+    },
+    publishedDate: {
+        type:Date,
+        required: true
     }
 })
 

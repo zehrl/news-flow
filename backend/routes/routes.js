@@ -1,9 +1,9 @@
-// const express = require('express')
+const express = require('express')
 // const jwt = require("jsonwebtoken");
 // const authorize = require('./middleware/auth')
 // const bcrypt = require('bcryptjs');
-// const { Mongoose } = require('mongoose');
-// const router = express.Router()
+const { Mongoose } = require('mongoose');
+const router = express.Router()
 // const User = require('../models/User')
 
 // router.get('/allUsers', (req, res) => {
