@@ -11,7 +11,6 @@ const Header = () => {
                 <div className="container-fluid">
 
                 <img id="logo" src={logo} alt="logo"  />
-            
                 <a className="navbar-brand" id="nav-title" href="/">News Flow</a>
 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
