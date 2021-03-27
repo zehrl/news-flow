@@ -1,7 +1,36 @@
 import React from 'react';
+import favoriteAPI from '../utils/favoriteAPI';
 
 const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail, category, provider } }) => {
 // const NewsCard = () => { 
+
+
+  const [favorites, setFavorites] = useState ([])
+
+  useEffect (() => {
+    loadFavorites()
+}, [])
+
+function loadFavorites() {
+    favoriteAPI.getFavorites()
+    .then(res =>
+        setFavorites(res.data))
+        .catch(err => console.log(err));
+};
+
+function saveFavorite(articleData) {
+  favoriteAPI.saveArticle(articleData)
+  .then(res => setFavorites(res.data))
+  .catch(err=> console.log(err))
+}
+
+  function deleteFavorite(id) {
+      favoriteAPI.deleteFavorite(id) 
+          .then(res => loadFavorites())
+          .catch(err => console.log(err));
+  };
+
+
   return (
 
     <a href={url} target="_blank" rel="noopener noreferrer" className="card mb-3 news-card" style={{maxWidth: "600px", margin: "auto"}}>
