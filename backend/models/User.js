@@ -18,8 +18,25 @@ const UserSchema = new Schema({
     date:{
         type: Date,
         default:Date.now
-    }
+    },
+    favoriteArticles:[{
+        title: {
+            type: String,
+            required: true
+        },
+        url: {
+            type: String,
+            required: true
+        },
+        thumbnail: {
+            type: String,
+            required: true
+        },
+        description: {
+            type: String,
+            required: true
+        }
+    }]
 })
 
 module.exports = User = mongoose.model('users', UserSchema);
-// module.exports = mongoose.models.User || mongoose.model('users', UserSchema);
