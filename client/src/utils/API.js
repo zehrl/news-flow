@@ -14,9 +14,9 @@ class API {
      * @param {String} name 
      * @param {String} value 
      */
-    setHeader( name, value ) {
+    setHeader(name, value) {
 
-        if( value )
+        if (value)
 
             this.axios.defaults.headers.common[name] = value;
 
@@ -33,14 +33,10 @@ class API {
      * 
      * @returns {Promise}
      */
-    register( userData ) {
-        try {
-            return this.axios.post("/api/register", userData);
-        }
-        catch ( error ) {
-            throw error
-        }
-
+    register(userData) {
+        console.log("trying api.js, register...");
+        console.log("userData: ", userData);
+        return this.axios.post("/api/register", userData);
     }
 
 
@@ -51,7 +47,7 @@ class API {
      * 
      * @returns {Promise}
      */
-    login( userData ) {
+    login(userData) {
 
         return this.axios.post("/api/login", userData);
 
