@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from 'axios';
 import '../sass/signUp.css';
+import API from '../utils/api';
 
 
 class LoginPage extends Component {
@@ -28,25 +29,24 @@ class LoginPage extends Component {
     })
   }
 
-  onSubmit(event) {
+  handleSubmit(event) {
     event.preventDefault();
 
-    const registered = {
+    const userData = {
       password: this.state.password,
       email: this.state.email
     }
-    axios.post('http://localhost:4000/app/LoginPage', registered)
-    .then(response => console.log(response.data))
+    
+    API.login(userData).then(res=>{console.log(res)})
 
-    window.location='/'
-  }
+  } 
 
   render() {
     return (
       <div id="root">
         <div className="container">
           <div className="form-div">
-            <form>
+            <form onSubmit={this.handleSubmit}>
               <h1 className="title"> Login </h1>
               <input type="text"
                 placeholder='E-mail'

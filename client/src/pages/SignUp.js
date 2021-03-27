@@ -1,112 +1,86 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css"
 import '../sass/signUp.css'
-import api from '../utils/api';
+import API from '../utils/api';
 import axios from 'axios';
 
-class SignUp extends Component {
-  constructor() {
-    super()
-    this.state = {
-      fullName: '',
-      email: '',
-      password: ''
-    }
-    this.changeFullName = this.changeFullName.bind(this)
-    this.changePassword = this.changePassword.bind(this)
-    this.changeEmail = this.changeEmail.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+const SignUp = () => {
+
+  const [fullName, setFullName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+
+  const changeFullName = (event) => {
+
+    setFullName(event.target.value)
+
   }
 
-  changeFullName(event){
-    this.setState({
-      fullName:event.target.value
-    })
-  }
-  changeUsername(event){
-    this.setState({
-      username: event.target.value
-    })
-  }
-  changePassword(event){
-    this.setState({
-      password:event.target.value
-    })
-  }
-  changeEmail(event){
-    this.setState({
-      email:event.target.value
-    })
+  const changePassword = (event) => {
+
+    setPassword(event.target.value)
+
   }
 
-  handleSubmit(event) {
+  const changeEmail = (event) => {
+
+    setEmail(event.target.value)
+
+  }
+
+  const handleSubmit = (event) => {
     event.preventDefault();
 
-    const userData = {
-      fullName: this.state.fullName,
-      password: this.state.password,
-      email: this.state.email
-    }
-    
-    // axios.post('api/register', userData).then(response=> console.log(response))
-    // api.register(userData)
-    // .then(response => {
-    //   console.log(response.data)
-    //   window.location='/'
-    // })
-    console.log("userData: ", JSON.stringify(userData))
+    const userData = { fullName, password, email }
 
-    api.register( JSON.stringify(userData) )
+    // console.log("SignUp.js, userData: ", (userData))
+
+    API.register(userData).catch(error => console.log(error.response.data));
+
 
   }
 
-  render() {
-    return (
-      <div id="root">
-        <div className="container">
-          <div className="form-div">
-            <form onSubmit={this.handleSubmit}>
-              <h1 className="title"> Sign Up </h1>
-              <input type="text"
-                placeholder='E-mail'
-                onChange={this.changeEmail}
-                value={this.state.email}
-                className='form-control form-group'
-                name="email"
-                required
-              />
-              <input type="text"
-                placeholder='Full name'
-                onChange={this.changeFullName}
-                value={this.state.fullName}
-                className='form-control form-group'
-                name="fullName"
-                required
-              />
-              {/* <input type="text"
-                placeholder='Username'
-                onChange={this.changeUsername}
-                value={this.state.username}
-                className='form-control form-group'
-                required
-              /> */}
-              <input type="password"
-                placeholder='password'
-                onChange={this.changePassword}
-                value={this.state.password}
-                className='form-control form-group'
-                name="password"
-                required
-              />
+  return (
+    <div id="root">
+      <div className="container">
+        <div className="form-div">
+          <form onSubmit={handleSubmit}>
+            <h1 className="title">Sign Up</h1>
 
-              <input type="submit" className='btn btn-primary btn-block' value='Submit' />
-            </form>
-          </div>
+            <input type="text"
+              placeholder='Email'
+              onChange={changeEmail}
+              value={email}
+              className='form-control form-group'
+              name="email"
+              required
+            />
+
+            <input type="text"
+              placeholder='Full Name'
+              onChange={changeFullName}
+              value={fullName}
+              className='form-control form-group'
+              name="fullName"
+              required
+            />
+
+            <input type="password"
+              placeholder='Password'
+              onChange={changePassword}
+              value={password}
+              className='form-control form-group'
+              name="password"
+              required
+            />
+
+            <input type="submit" className='btn btn-primary btn-block' value='Submit' />
+          </form>
         </div>
       </div>
+    </div>
 
-    )
-  }
+  )
 }
 
 export default SignUp
