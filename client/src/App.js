@@ -2,12 +2,12 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
 import React from 'react';
-// import SignInModal from './components/SignInModal'
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import ProfilePage from './pages/ProfilePage';
 import MainPage from "./pages/MainPage";
-// import CreateNewAccount from './components/CreateNewAccount.js';
+import MainPage from "./pages/MainPage"
 import SignUp from './pages/SignUp';
+import { useAuthTokenStore } from "./utils/auth";
 import LoginPage from './pages/LoginPage';
 
 const styles = {
@@ -15,9 +15,10 @@ const styles = {
   textAlign: 'center',
 };
 
-
-
 function App() {
+  // Use the hook to reauthenticate stored tokens.
+  useAuthTokenStore();
+  
   return (
     <div className="h-100 d-flex flex-column">
       <Header />
