@@ -5,16 +5,20 @@ const FavoritesSchema = new mongoose.SchemaType({
         type:String,
         requried: true
     },
-    headline: {
+    title: {
         type:String,
         required: true
     },
-    articleLink: {
+    url: {
         type:String,
         required: true
     },
-    articleThumb: {
+    thumbnail: {
         type:String,
+        required: true
+    },
+    description: {
+        type: String,
         required: true
     }
 })
