@@ -1,48 +1,69 @@
 const express = require('express')
-// const jwt = require("jsonwebtoken");
-// const authorize = require('./middleware/auth')
-// const bcrypt = require('bcryptjs');
 const { Mongoose } = require('mongoose');
 const router = express.Router()
 const User = require('../models/User')
+const auth = require('./middleware/auth')
 
-router.get('/savedArticles/:email', (req, res) => {
+router.get('/savedArticles/:email', async (req, res) => {
 
-    const { params: { email } } = req;
+    try {
+        const { email } = req.params;
 
-    User
-        .findOne({ email }, "savedArticles")
-        .then(result => {
-            res.status(200).json(result.savedArticles)
-        })
-        .catch(err => {
-            console.log("Error!", err)
-            res.status(500).json("Email not found")
-        })
+        const user = await User.findOne({ email })
+
+        if (!user) {
+            // User not found by email.
+            return res.status(404).json("No user associated with the email provided");
+        }
+
+        res.status(200).json(user.savedArticles)
+
+    }
+    catch (error) {
+        res.status(500).json(error)
+    }
 })
 
-// router.post('/signup', (req, res) => {
-//     bcrypt.hash(req.body.password, 10)
-//         .then((hash) => {
-//             const user = new User({
-//                 fullName: req.body.fullName,
-//                 email: req.body.email,
-//                 password: hash
-//             });
+router.post('/savedArticles', async (req, res) => {
 
-//             user
-//                 .save()
-//                 .then((response) => {
-//                     res.status(201).json({
-//                         message: 'User Created',
-//                         result: response
-//                     })
-//                 .catch((error) => {
-//                     res.json(error);
-//                 });
-//             });
-//         });
-// });
+    try {
+        // find user 
+        const { email, articleData } = req.body;
+
+        const user = await User.findOne({ email })
+        // console.log("user: ", user)
+
+        if (!user) {
+            // User not found by email.
+            return res.status(404).json("No user associated with the email provided");
+        }
+
+
+        // If article is already favorite, return error
+        const urls = user.savedArticles.map(article => article.url)
+        console.log("urls: ", urls)
+        console.log("artivleData.url: ", articleData.url)
+
+
+        const isUniqueUrl = !(urls.includes(articleData.url));
+
+        if (!isUniqueUrl) {
+            return res.status(404).json("User already favorited that article")
+        }
+
+        // push article to favorites and save user
+        user.savedArticles.push(articleData);
+
+        User.updateOne(user, (err, data) => {
+            res.status(200).json("Article Saved")
+        });
+
+    }
+    catch (error) {
+        console.log(error)
+        res.status(500).json(error)
+    }
+});
 
 
 

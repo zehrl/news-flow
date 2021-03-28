@@ -10,8 +10,8 @@ export default {
             })
     },
 
-    saveArticle: function (articleData) {
-        return axios.post("/api/savedArticles", articleData)
+    saveArticle: function (email, articleData) {
+        return axios.post("/api/savedArticles", { email, articleData })
     },
 
     deleteFavorite: function (id) {
