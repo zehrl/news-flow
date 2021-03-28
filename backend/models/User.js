@@ -19,7 +19,7 @@ const UserSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    favoriteArticles: [{
+    savedArticles: [{
         title: {
             type: String,
             required: true

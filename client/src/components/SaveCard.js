@@ -1,7 +1,33 @@
 import React from 'react';
 
-const SaveCard = ({savedArticle: { title, description, url, publishedDate, thumbnail, provider }}) => {
-  // const SaveCard = () => { 
+
+
+const SaveCard = ({ savedArticle: { title, description, url, publishedDate, thumbnail, provider } }) => {
+
+  // useEffect(() => {
+  //   loadFavorites()
+  // }, [])
+
+  // function loadFavorites() {
+  //   favoriteAPI.getFavorites()
+  //     .then(res =>
+  //       setFavorites(res.data))
+  //     .catch(err => console.log(err));
+  // };
+
+  // function saveFavorite(articleData) {
+  //   favoriteAPI.saveArticle(articleData)
+  //   .then(res => setFavorites(res.data))
+  //   .catch(err=> console.log(err))
+  // }
+
+  // function deleteFavorite(id) {
+  //     favoriteAPI.deleteFavorite(id) 
+  //         .then(res => loadFavorites())
+  //         .catch(err => console.log(err));
+  // };
+
+
   return (
 
     <a href={url} target="_blank" rel="noopener noreferrer" className="card mb-3 news-card" style={{ maxWidth: "600px", margin: "auto" }}>

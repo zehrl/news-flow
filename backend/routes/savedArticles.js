@@ -4,19 +4,22 @@ const express = require('express')
 // const bcrypt = require('bcryptjs');
 const { Mongoose } = require('mongoose');
 const router = express.Router()
-// const User = require('../models/User')
+const User = require('../models/User')
 
-// router.get('/allUsers', (req, res) => {
-//     User
-//     .find()
-//     .then((data) => {
-//         res.json(data);
-//     })
-//     .catch((error) => {
-//         res.json(error)
-//     })
-//     console.log("/allUsers called...");
-// })
+router.get('/savedArticles/:email', (req, res) => {
+
+    const { params: { email } } = req;
+
+    User
+        .findOne({ email }, "savedArticles")
+        .then(result => {
+            res.status(200).json(result.savedArticles)
+        })
+        .catch(err => {
+            console.log("Error!", err)
+            res.status(500).json("Email not found")
+        })
+})
 
 // router.post('/signup', (req, res) => {
 //     bcrypt.hash(req.body.password, 10)
@@ -45,7 +48,7 @@ const router = express.Router()
 
 // router.post("/signin", (req, res, next) => {
 //     console.log("/signin called.")
-    
+
 //     let getUser;
 //     User.findOne({
 //         email: req.body.email,
@@ -96,4 +99,4 @@ const router = express.Router()
 //     });
 // })
 
-// module.exports = router
+module.exports = router;

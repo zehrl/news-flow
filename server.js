@@ -1,11 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const routeUrls = require('./backend/routes/routes');
 const cors = require('cors');
 const path = require("path");
 const passport = require("passport");
-
 
 const PORT = process.env.PORT || 3001;
 
@@ -17,7 +15,7 @@ dotenv.config();
 app.use(express.json())
 app.use(cors())
 app.use("/api", require("./backend/routes/authentication"));
-// app.use(routeUrls);
+app.use("/api", require('./backend/routes/savedArticles'));
 
 app.use(passport.initialize());
 // Passport config
@@ -33,7 +31,7 @@ if (process.env.NODE_ENV === "production") {
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
 
 app.listen(PORT, function (error) {
