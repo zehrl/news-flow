@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import favoriteAPI from '../utils/favoriteAPI';
-import '../sass/newsCard.css';
 
 const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail, category, provider } }) => {
 // const NewsCard = () => { 

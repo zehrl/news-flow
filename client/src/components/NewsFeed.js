@@ -23,7 +23,7 @@ function NewsFeed({location}) {
 
 
     return (
-        <div className="card-container overflow-auto">
+        <div className="card-container overflow-auto" id="scroll-bar">
             {newsCards}
         </div>
     )
