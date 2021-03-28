@@ -26,16 +26,16 @@ const Header = () => {
                     <div className="collapse navbar-collapse justify-content-end" id="header-nav-links">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/SignUp">SignUp</a>
+                                <a className="nav-link" aria-current="page" href="/SignUp">SignUp</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/Login">Login</a>
+                                <a className="nav-link" aria-current="page" href="/Login">Login</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="/ProfilePage">Profile</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/Login">sign out</a>
+                                <a className="nav-link" href="/Login">Logout</a>
                             </li>
                         </ul>
                     </div>
