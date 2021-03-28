@@ -65,59 +65,33 @@ router.post('/savedArticles', async (req, res) => {
     }
 });
 
+// https://mongoosejs.com/docs/subdocs.html
+router.delete('/savedArticles', async (req, res) => {
 
+    const {email, url: urlToDelete} = req.body;
 
-// router.post("/signin", (req, res, next) => {
-//     console.log("/signin called.")
+    try {
+        
+        User.findOneAndUpdate(
+            { email },
+            { $pull: { savedArticles: { url: urlToDelete } } },
+            { new: true },
+            function(err, results) {
+                if (err) { 
+                    console.log(err) 
+                    throw err
+                }
 
-//     let getUser;
-//     User.findOne({
-//         email: req.body.email,
-//     }).then(user => {
-//         console.log("User sigining in: ", user);
-//         if (!user) {
-//             return res.status(401).json({
-//                 message: 'No user found.'
-//             });
-//         }
-//         getUser = user;
-//         return bcrypt.compare(req.body.password, user.password, (err, same) => {
-//             if (err) {console.log("bcrypt password comparison error: ", err)};
-//             console.log("Passwords matched? -> ", same);
-//         });
-//     })
-//         .then(response => {
-//             // if (!response) {
-//             //     return res.status(401).json({
-//             //         message: 'No response given by bcrypt. Check bcrypt.compare(req.body.password, user.password)'
-//             //     });
-//             // }
-//             let jwtToken = jwt.sgin({
-//                 email: getUser.email,
-//                 userId: getUser._id,
-//             },
-//                 'longer-secret-is-better');
+                res.status(200).json(results)
+            }
+        )
 
-//             res.status(200).json({
-//                 token: jwtToken,
-//                 msg: getUser
-//             });
-//         })
-//         .catch(e => {
-//             return res.status(401).json({
-//                 message: 'Authentication failed',
-//                 error: e
-//             });
-//         });
-// });
+    }
+    catch (error) {
+        console.log(error)
+        res.status(500).json(error)
+    }
 
-// router.route('all-user').get(authorize, (req, res) => {
-//     User.find((error, response) => {
-//         if (error) {
-//             return netx(error);
-//         }
-//         res.setDefaultEncoding(200).json(response);
-//     });
-// })
+})
 
 module.exports = router;

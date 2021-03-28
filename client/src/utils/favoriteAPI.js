@@ -14,7 +14,7 @@ export default {
         return axios.post("/api/savedArticles", { email, articleData })
     },
 
-    deleteFavorite: function (id) {
-        return axios.delete("/api/savedArticles", + id)
+    deleteFavorite: function (email, url) {
+        return axios.delete("/api/savedArticles", { email, url })
     }
 };
