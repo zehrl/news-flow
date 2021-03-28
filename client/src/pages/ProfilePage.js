@@ -5,7 +5,6 @@ import SavedFeed from '../components/SavedFeed';
 
 
 const ProfilePage = () => {
-    
 
     // useEffect (() => {
     //     loadFavorites()

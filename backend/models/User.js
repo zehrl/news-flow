@@ -19,30 +19,31 @@ const UserSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    favoriteArticles: [{
+    savedArticles: [{
         title: {
             type: String,
-            required: true
+            required: [true, "No article title provided"]
         },
         description: {
             type: String,
-            required: true
+            required: [true, "No article description provided"]
         },
         url: {
             type: String,
-            required: true
+            required: true,
+            unique: [true, "No article url provided"]
         },
         publishedDate: {
             type: Date,
-            required: true
+            required: [true, "No published date provided"]
         },
         thumbnail: {
             type: String,
-            required: true
+            required: [true, "No article thumbnail provided"]
         },
         provider: {
             type: String,
-            required: true
+            required: [true, "No article provider (ex. Yahoo News) provided"]
         },
     }]
 })
