@@ -5,22 +5,26 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     fullName: {
         type: String,
-        required:true
+        required: true
     },
-    email:{
+    email: {
         type: String,
-        required:true
+        required: true
     },
-    password:{
+    password: {
         type: String,
-        required:true
+        required: true
     },
-    date:{
+    date: {
         type: Date,
-        default:Date.now
+        default: Date.now
     },
-    favoriteArticles:[{
+    favoriteArticles: [{
         title: {
+            type: String,
+            required: true
+        },
+        description: {
             type: String,
             required: true
         },
@@ -28,14 +32,18 @@ const UserSchema = new Schema({
             type: String,
             required: true
         },
+        publishedDate: {
+            type: Date,
+            required: true
+        },
         thumbnail: {
             type: String,
             required: true
         },
-        description: {
+        provider: {
             type: String,
             required: true
-        }
+        },
     }]
 })
 

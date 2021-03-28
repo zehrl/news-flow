@@ -1,0 +1,82 @@
+[
+    {
+        "title" : "Article 1",
+        "url" : "google.com",
+        "thumbnail" : "https://image.shutterstock.com/shutterstock/photos/1036735678/display_1500/stock-vector-no-image-available-icon-template-for-no-image-or-picture-coming-soon-vector-illustration-isolated-1036735678.jpg",
+        "description" : "article 1 description",
+        "publishedDate" : "3/28/21",
+        "provider" : "provider 1"
+    },
+    {
+        "title" : "Article 2",
+        "url" : "google.com",
+        "thumbnail" : "https://image.shutterstock.com/shutterstock/photos/1036735678/display_1500/stock-vector-no-image-available-icon-template-for-no-image-or-picture-coming-soon-vector-illustration-isolated-1036735678.jpg",
+        "description" : "article 2 description",
+        "publishedDate" : "3/29/21",
+        "provider" : "provider 2"
+    },
+    {
+        "title" : "Article 3",
+        "url" : "google.com",
+        "thumbnail" : "https://image.shutterstock.com/shutterstock/photos/1036735678/display_1500/stock-vector-no-image-available-icon-template-for-no-image-or-picture-coming-soon-vector-illustration-isolated-1036735678.jpg",
+        "description" : "article 3 description",
+        "publishedDate" : "3/30/21",
+        "provider" : "provider 3"
+    },
+    {
+        "title" : "Article 4",
+        "url" : "google.com",
+        "thumbnail" : "https://image.shutterstock.com/shutterstock/photos/1036735678/display_1500/stock-vector-no-image-available-icon-template-for-no-image-or-picture-coming-soon-vector-illustration-isolated-1036735678.jpg",
+        "description" : "article 4 description",
+        "publishedDate" : "3/31/21",
+        "provider" : "provider 4"
+    },
+    {
+        "title" : "Article 5",
+        "url" : "google.com",
+        "thumbnail" : "https://image.shutterstock.com/shutterstock/photos/1036735678/display_1500/stock-vector-no-image-available-icon-template-for-no-image-or-picture-coming-soon-vector-illustration-isolated-1036735678.jpg",
+        "description" : "article 5 description",
+        "publishedDate" : "4/1/21",
+        "provider" : "provider 5"
+    },
+    {
+        "title" : "Article 6",
+        "url" : "google.com",
+        "thumbnail" : "https://image.shutterstock.com/shutterstock/photos/1036735678/display_1500/stock-vector-no-image-available-icon-template-for-no-image-or-picture-coming-soon-vector-illustration-isolated-1036735678.jpg",
+        "description" : "article 6 description",
+        "publishedDate" : "4/2/21",
+        "provider" : "provider 6"
+    },
+    {
+        "title" : "Article 7",
+        "url" : "google.com",
+        "thumbnail" : "https://image.shutterstock.com/shutterstock/photos/1036735678/display_1500/stock-vector-no-image-available-icon-template-for-no-image-or-picture-coming-soon-vector-illustration-isolated-1036735678.jpg",
+        "description" : "article 7 description",
+        "publishedDate" : "4/3/21",
+        "provider" : "provider 7"
+    },
+    {
+        "title" : "Article 8",
+        "url" : "google.com",
+        "thumbnail" : "https://image.shutterstock.com/shutterstock/photos/1036735678/display_1500/stock-vector-no-image-available-icon-template-for-no-image-or-picture-coming-soon-vector-illustration-isolated-1036735678.jpg",
+        "description" : "article 8 description",
+        "publishedDate" : "4/4/21",
+        "provider" : "provider 8"
+    },
+    {
+        "title" : "Article 9",
+        "url" : "google.com",
+        "thumbnail" : "https://image.shutterstock.com/shutterstock/photos/1036735678/display_1500/stock-vector-no-image-available-icon-template-for-no-image-or-picture-coming-soon-vector-illustration-isolated-1036735678.jpg",
+        "description" : "article 9 description",
+        "publishedDate" : "4/5/21",
+        "provider" : "provider 9"
+    },
+    {
+        "title" : "Article 10",
+        "url" : "google.com",
+        "thumbnail" : "https://image.shutterstock.com/shutterstock/photos/1036735678/display_1500/stock-vector-no-image-available-icon-template-for-no-image-or-picture-coming-soon-vector-illustration-isolated-1036735678.jpg",
+        "description" : "article 10 description",
+        "publishedDate" : "4/6/21",
+        "provider" : "provider 10"
+    }
+]

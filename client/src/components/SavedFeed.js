@@ -1,26 +1,25 @@
 import React, { useEffect, useState } from "react";
-import API from "../utils/API";
 import SaveCard from "./SaveCard";
+import devData from "../utils/savedCardsDevData.json"
 
-function SavedFeed({location}) {
+function SavedFeed() {
 
     const [saveCards, setSaveCards] = useState([])
 
-    const generateCards = (results) => {
-        const cards = results.map(article => {
-            return <SaveCard article={article} />
+    const generateCards = (data) => {
+        const cards = data.map(savedArticle => {
+            console.log("savedArticle: ", savedArticle)
+            return <SaveCard savedArticle={savedArticle} />
         })
 
         setSaveCards(cards)
     }
 
     useEffect(() => {
-        API
-            .getNews(location)
-            .then((res) => generateCards(res))
+        console.log("generating cards: ", devData)
+        generateCards(devData)
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [location])
-
+    }, [])
 
     return (
         <div className="card-container overflow-auto">
