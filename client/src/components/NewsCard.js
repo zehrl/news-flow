@@ -1,11 +1,13 @@
 
 import React from 'react';
 import savedArticlesAPI from '../utils/savedArticlesAPI';
-import { useIsAuthenticated } from '../utils/auth'
+import { useAuthenticatedUser, useIsAuthenticated } from '../utils/auth'
 
 const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail, category, provider } }) => {
 
   const isAuth = useIsAuthenticated();
+  const authData = useAuthenticatedUser();
+
 
   const handleSave = () => {
 
@@ -20,8 +22,9 @@ const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail
       provider
     }
 
-    savedArticlesAPI.saveArticle("coolguy69@internet.net", articleData)
-
+    if (authData) {
+      savedArticlesAPI.saveArticle(authData.email, articleData)
+    }
   }
 
 
@@ -33,7 +36,7 @@ const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail
         <div className="d-flex flex-column flex-grow-1 align-items-stretch">
           <div className="d-flex justify-content-between align-items-start mb-2">
             <h5 className="card-title article-title mb-0 me-2">{title}</h5>
-            <a className="btn btn-primary save-button" href={url} target="_blank" rel="noopener noreferrer">View</a>
+            <a className="btn btn-primary save-button me-1" href={url} target="_blank" rel="noopener noreferrer">View</a>
 
             {isAuth && <a id="saveBtn" className="btn btn-primary save-button" onClick={handleSave}>Save</a>}
 

@@ -1,5 +1,7 @@
 import axios from 'axios';
-
+axios.defaults.headers.common = {
+    "Content-Type": "application/json"
+}
 export default {
     getFavorites: function (email) {
 
@@ -22,6 +24,7 @@ export default {
     },
 
     deleteFavorite: function (email, url) {
-        return axios.delete("/api/savedArticles", { email, url })
+        console.log("deleteFavorite called...", "email: ", email, "url: ", url)
+        return axios.delete("/api/savedArticles", {data: { email, url }},{ headers: { "Content-Type": "text/plain" } })
     }
 };

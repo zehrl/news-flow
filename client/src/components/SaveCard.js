@@ -1,36 +1,22 @@
 import React from 'react';
+import { useAuthenticatedUser } from '../utils/auth';
+import savedArticlesAPI from '../utils/savedArticlesAPI';
 
 
 
-const SaveCard = ({ savedArticle: { title, description, url, publishedDate, thumbnail, provider } }) => {
+const SaveCard = ({ savedArticle: { title, description, url, publishedDate, thumbnail, provider }, getSavedArticles }) => {
 
-  // useEffect(() => {
-  //   loadFavorites()
-  // }, [])
+  const authData = useAuthenticatedUser();
 
-  // function loadFavorites() {
-  //   favoriteAPI.getFavorites()
-  //     .then(res =>
-  //       setFavorites(res.data))
-  //     .catch(err => console.log(err));
-  // };
-
-  // function saveFavorite(articleData) {
-  //   favoriteAPI.saveArticle(articleData)
-  //   .then(res => setFavorites(res.data))
-  //   .catch(err=> console.log(err))
-  // }
-
-  // function deleteFavorite(id) {
-  //     favoriteAPI.deleteFavorite(id) 
-  //         .then(res => loadFavorites())
-  //         .catch(err => console.log(err));
-  // };
-
+  const handleDelete = () => {
+    console.log("handleDelete called...")
+    console.log("authData: ", authData)
+    savedArticlesAPI.deleteFavorite(authData.email, url).then(getSavedArticles())
+  }
 
   return (
 
-    <a href={url} target="_blank" rel="noopener noreferrer" className="card mb-3 news-card" style={{ maxWidth: "600px", margin: "auto" }}>
+    <div className="card mb-3 news-card" style={{ maxWidth: "600px", margin: "auto" }}>
       <div className="card-body d-flex">
         <img className="me-3 rounded article-thumbnail"
           src={thumbnail} alt="...">
@@ -38,7 +24,8 @@ const SaveCard = ({ savedArticle: { title, description, url, publishedDate, thum
         <div className="d-flex flex-column flex-grow-1 align-items-stretch">
           <div className="d-flex justify-content-between align-items-start mb-2">
             <h5 className="card-title article-title mb-0 me-2">{title}</h5>
-            <button id="saveBtn" className="btn btn-primary save-button" type="submit">Delete</button>
+            <button onClick={handleDelete} id="saveBtn" className="btn btn-danger save-button me-1">Delete</button>
+            <a id="saveBtn" className="btn btn-primary save-button" href={url} target="_blank" rel="noopener noreferrer">View</a>
           </div>
           <p className="card-text article-description mb-1">{description}</p>
 
@@ -55,7 +42,7 @@ const SaveCard = ({ savedArticle: { title, description, url, publishedDate, thum
           </div>
         </div>
       </div>
-    </a>
+    </div>
 
   )
 

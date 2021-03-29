@@ -72,7 +72,7 @@ router.post('/savedArticles', async (req, res) => {
 router.delete('/savedArticles', async (req, res) => {
 
     const {email, url: urlToDelete} = req.body;
-
+    console.log("delete /savedArticles, req.body: ", req.body);
     try {
         
         User.findOneAndUpdate(
