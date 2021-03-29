@@ -9,7 +9,7 @@ import SignUp from './pages/SignUp';
 import { useAuthTokenStore } from "./utils/auth";
 import LoginPage from './pages/LoginPage';
 import GuestRoute from './components/GuestRoute';
-import PrivateRoute from './components/PrivateRoute';
+// import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   // Use the hook to reauthenticate stored tokens.
