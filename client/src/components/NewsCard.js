@@ -1,35 +1,47 @@
 
-import React, { useState, useEffect } from 'react';
-import favoriteAPI from '../utils/favoriteAPI';
+import React from 'react';
+import savedArticlesAPI from '../utils/savedArticlesAPI';
 
 const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail, category, provider } }) => {
   // const NewsCard = () => { 
 
 
-  const [favorites, setFavorites] = useState([])
+  // const [favorites, setFavorites] = useState([])
 
   // useEffect(() => {
   //   loadFavorites()
   // }, [])
 
   // function loadFavorites() {
-  //   favoriteAPI.getFavorites()
+  //   savedArticlesAPI.getFavorites()
   //     .then(res =>
   //       setFavorites(res.data))
   //     .catch(err => console.log(err));
   // };
 
   // function saveFavorite(articleData) {
-  //   favoriteAPI.saveArticle(articleData)
+  //   savedArticlesAPI.saveArticle(articleData)
   //   .then(res => setFavorites(res.data))
   //   .catch(err=> console.log(err))
   // }
 
   // function deleteFavorite(id) {
-  //     favoriteAPI.deleteFavorite(id) 
+  //     savedArticlesAPI.deleteFavorite(id) 
   //         .then(res => loadFavorites())
   //         .catch(err => console.log(err));
   // };
+
+  const handleSave = (event) => {
+    event.stopPropagation();
+    
+    console.log("url: ", url)
+
+    const articleData = {
+      url
+    }
+
+    savedArticlesAPI.saveArticle("coolguy69@internet.net", articleData)
+  }
 
 
   return (
@@ -40,7 +52,9 @@ const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail
         <div className="d-flex flex-column flex-grow-1 align-items-stretch">
           <div className="d-flex justify-content-between align-items-start mb-2">
             <h5 className="card-title article-title mb-0 me-2">{title}</h5>
-            <a href="https://google.com" target="_blank" rel="noopener noreferrer"><button id="saveBtn" className="btn btn-primary save-button" type="submit">Save</button></a>
+            {/* <a href="https://google.com" target="_blank" rel="noopener noreferrer"><button id="saveBtn" className="btn btn-primary save-button" type="submit">Save</button></a> */}
+            <a onClick={handleSave}><button id="saveBtn" className="btn btn-primary save-button" type="submit">Save</button></a>
+          
           </div>
           <p className="card-text article-description mb-1">{description}</p>
 

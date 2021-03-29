@@ -1,9 +1,12 @@
 import React from 'react';
 import '../sass/navbar.css';
 import logo from '../images/logo.png';
+import { useLogout } from '../utils/auth';
 
 
 const Header = () => {
+
+    const logout = useLogout();
 
     return (
         <header>
@@ -35,7 +38,7 @@ const Header = () => {
                                 <a className="nav-link" href="/ProfilePage">Profile</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/Login">Logout</a>
+                                <a onClick={logout} className="nav-link" href="/">Logout</a>
                             </li>
                         </ul>
                     </div>
@@ -44,10 +47,6 @@ const Header = () => {
             </nav>
         </header >
     )
-}
-
-Header.defaultProps = {
-    title: 'News Flow',
 }
 
 export default Header

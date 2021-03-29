@@ -26,12 +26,12 @@ const thirdPartyAPI = {
 
                 const { data: { results } } = res;
 
-                console.log("res: ", res)
-                console.log("results: ", results)
+                // console.log("res: ", res)
+                // console.log("results: ", results)
 
                 // Check if status is "OK"
                 if (res.data.status === "OK") {
-                    console.log("Status 'OK' from Google API")
+                    // console.log("Status 'OK' from Google API")
 
                     // For each address_components, set city, state, and country based on each ".types" property
                     results[0].address_components.forEach(component => {
@@ -63,14 +63,14 @@ const thirdPartyAPI = {
 
                 } else if (res.data.status === "ZERO_RESULTS") {
 
-                    console.log("Status 'NO_RESULTS from Google API'")
+                    // console.log("Status 'NO_RESULTS from Google API'")
                     location = "No results."
 
                 }
 
                 // Development Console Logs
-                console.log(" ----- Geocoding API Call Results ----- ")
-                console.log("Location: ", location);
+                // console.log(" ----- Geocoding API Call Results ----- ")
+                // console.log("Location: ", location);
 
                 return location;
             })
@@ -89,7 +89,7 @@ const thirdPartyAPI = {
             })
             .then(({ data: { value } }) => {
                 const formattedData = value.map(article => {
-                    console.log("Current Article: ", article);
+                    // console.log("Current Article: ", article);
 
                     // Format date to "M/DD/YY"
                     const options = {
@@ -107,13 +107,13 @@ const thirdPartyAPI = {
                         thumbnail = article.image.thumbnail.contentUrl;;
                     }
                     catch {
-                        console.log("Couldn't assign content url");
+                        // console.log("Couldn't assign content url");
                         try {
                             thumbnail = article.provider[0].image.thumbnail.contentUrl;;
                         }
                         catch {
-                            console.log("Couldn't assign provider url");
-                            console.log("setting url to default: https://www.pinclipart.com/picdir/big/534-5342402_brown-gorilla-stuffed-toy-svg-clip-arts-gorilla.png")
+                            // console.log("Couldn't assign provider url");
+                            // console.log("setting url to default: https://www.pinclipart.com/picdir/big/534-5342402_brown-gorilla-stuffed-toy-svg-clip-arts-gorilla.png")
                             thumbnail = "https://www.pinclipart.com/picdir/big/534-5342402_brown-gorilla-stuffed-toy-svg-clip-arts-gorilla.png";
                         }
                     }
