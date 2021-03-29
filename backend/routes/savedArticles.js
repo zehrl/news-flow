@@ -5,9 +5,11 @@ const User = require('../models/User')
 const auth = require('./middleware/auth')
 
 router.get('/savedArticles/:email', async (req, res) => {
-
+    console.log("get /savedArticles called...")
     try {
+
         const { email } = req.params;
+        console.log("savedArticles.js, email: ", email)
 
         const user = await User.findOne({ email })
 
@@ -16,6 +18,7 @@ router.get('/savedArticles/:email', async (req, res) => {
             return res.status(404).json("No user associated with the email provided");
         }
 
+        console.log("user.savedArticles: ", user.savedArticles)
         res.status(200).json(user.savedArticles)
 
     }
@@ -69,7 +72,7 @@ router.post('/savedArticles', async (req, res) => {
 router.delete('/savedArticles', async (req, res) => {
 
     const {email, url: urlToDelete} = req.body;
-
+    console.log("delete /savedArticles, req.body: ", req.body);
     try {
         
         User.findOneAndUpdate(

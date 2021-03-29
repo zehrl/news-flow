@@ -111,7 +111,10 @@ export const useAuthTokenStore = () => {
 export const useIsAuthenticated = () => {
 
     const [ { userAuth: { token } } ] = useStoreContext();
+    console.log("useStoreContext: ", useStoreContext())
 
+
+    
     return token && token.exp > Date.now() / 1000;
 
 }
@@ -135,7 +138,7 @@ export const useLogin = () => {
         const token = setAuthToken( tokenString );
 
         dispatch({ type: LOGIN_USER, payload: { token, user } });
-
+        console.log(token)
         return token;
         
     }

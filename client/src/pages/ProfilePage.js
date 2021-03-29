@@ -1,25 +1,13 @@
-import React, {useState, useEffect} from 'react';
-import favoriteAPI from '../utils/favoriteAPI';
+import React from 'react';
 import SavedFeed from '../components/SavedFeed';
 
 
 
 const ProfilePage = () => {
-
-    // useEffect (() => {
-    //     loadFavorites()
-    // }, [])
-  
-    // function loadFavorites() {
-    //     favoriteAPI.getFavorites()
-    //     .then(res =>
-    //         setFavorites(res.data))
-    //         .catch(err => console.log(err));
-    // };
     
     return (
-        <div class="container-md">
-            <h1 className="text-center">Saved Posts</h1>
+        <div className="container-md pb-4">
+            <h1 className="text-center section-header mb-3">Saved Posts</h1>
             <SavedFeed />
         </div>
     )

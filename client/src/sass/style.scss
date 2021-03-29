@@ -5,6 +5,15 @@ body {
     height: 100vh;
 }
 
+.section-header {
+    color: rgb(216, 212, 193);
+    font-family: 'New Tegomin', serif;
+}
+
+.secondary-text {
+    color: rgba(216, 212, 193, 0.5);
+}
+
 /* Header */
 
 #header-nav {
@@ -17,7 +26,6 @@ body {
     font-family: 'Pacifico', cursive;
     font-size: 2rem;
 }
-
 
 /* Main */
 
@@ -98,6 +106,10 @@ body {
 /* Media Queries */
 
 @media only screen and (max-width: 425px) {
+    .article-title {
+        font-size: .75rem;
+    }
+    
     .article-description {
       display: none;
     }

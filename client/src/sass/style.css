@@ -4,6 +4,15 @@ body {
   height: 100vh;
 }
 
+.section-header {
+  color: #d8d4c1;
+  font-family: 'New Tegomin', serif;
+}
+
+.secondary-text {
+  color: rgba(216, 212, 193, 0.5);
+}
+
 /* Header */
 #header-nav {
   background-color: #53aa7d;
@@ -87,6 +96,9 @@ body {
 
 /* Media Queries */
 @media only screen and (max-width: 425px) {
+  .article-title {
+    font-size: .75rem;
+  }
   .article-description {
     display: none;
   }

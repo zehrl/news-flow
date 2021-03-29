@@ -5,34 +5,22 @@ import '../sass/mainPage.css';
 import thirdPartyAPI from "../utils/thirdPartyAPI";
 
 const MainPage = () => {
-    // Making State
-    const [location, setLocation] = useState("Seatle, WA");
-
-    useEffect(() => {
-        loadNews()
-    });
-
-    function loadNews() {
-        thirdPartyAPI
-            .getLocation()
-            .then(res => setLocation(res.data))
-            .catch(err => console.log(err))
-    };
+    const [location, setLocation] = useState("Seatle, Washington, United States");
 
     return (
-        <main className="mt-5">
-            <div className="container-md mt-4">
+        <main className="pb-4">
+            <div className="container-md">
                 <div className="row">
 
                     <div className="col-xl-6 pb-3">
 
-              <h1 id="map-text" className="text-center">Explore</h1>
-                        <GoogleMap initLat={47.59764059923029} initLng={-122.32893838093258} zoom={12} setLocation={setLocation}/>
+                        <h1 id="map-text" className="text-center section-header mb-3">Explore</h1>
+                        <GoogleMap initLat={47.59764059923029} initLng={-122.32893838093258} zoom={12} setLocation={setLocation} />
                     </div>
 
                     <div className="col-xl-6 justify-content-center">
-                        <h1 id="news-text" className="text-center">News Feed</h1>
-                        <NewsFeed location={location}/>
+                        <h1 id="news-text" className="text-center section-header mb-3">News Feed</h1>
+                        <NewsFeed location={location} />
 
                     </div>
 

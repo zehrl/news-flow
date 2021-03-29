@@ -1,46 +1,56 @@
 
-import React, { useState, useEffect } from 'react';
-import favoriteAPI from '../utils/favoriteAPI';
+import React, { useEffect, useState } from 'react';
+import savedArticlesAPI from '../utils/savedArticlesAPI';
+import { useAuthenticatedUser, useIsAuthenticated } from '../utils/auth'
 
 const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail, category, provider } }) => {
-  // const NewsCard = () => { 
+
+  // Determines if card save button is enabled or disabled
+  const [btnDisabled, setBtnDisabled] = useState(false)
+
+  const isAuth = useIsAuthenticated();
+  const authData = useAuthenticatedUser();
 
 
-  const [favorites, setFavorites] = useState([])
+  const handleSave = () => {
 
-  // useEffect(() => {
-  //   loadFavorites()
-  // }, [])
+    console.log("url: ", url)
 
-  // function loadFavorites() {
-  //   favoriteAPI.getFavorites()
-  //     .then(res =>
-  //       setFavorites(res.data))
-  //     .catch(err => console.log(err));
-  // };
+    const articleData = {
+      title,
+      description,
+      url,
+      publishedDate,
+      thumbnail,
+      provider
+    }
 
-  // function saveFavorite(articleData) {
-  //   favoriteAPI.saveArticle(articleData)
-  //   .then(res => setFavorites(res.data))
-  //   .catch(err=> console.log(err))
-  // }
+    if (authData) {
+      savedArticlesAPI
+        .saveArticle(authData.email, articleData)
+        .then(setBtnDisabled(true))
+    }
 
-  // function deleteFavorite(id) {
-  //     favoriteAPI.deleteFavorite(id) 
-  //         .then(res => loadFavorites())
-  //         .catch(err => console.log(err));
-  // };
 
+  }
+
+  useEffect(() => { }, [btnDisabled])
 
   return (
 
-    <a href={url} target="_blank" rel="noopener noreferrer" className="card mb-3 news-card" style={{ maxWidth: "600px", margin: "auto" }}>
+    <div className="card mb-3 news-card" style={{ maxWidth: "600px", margin: "auto" }}>
       <div className="card-body d-flex">
         <img className="me-3 rounded article-thumbnail" src={thumbnail} alt="..." />
         <div className="d-flex flex-column flex-grow-1 align-items-stretch">
           <div className="d-flex justify-content-between align-items-start mb-2">
             <h5 className="card-title article-title mb-0 me-2">{title}</h5>
-            <a href="https://google.com" target="_blank" rel="noopener noreferrer"><button id="saveBtn" className="btn btn-primary save-button" type="submit">Save</button></a>
+            <a className="btn btn-primary save-button me-1" href={url} target="_blank" rel="noopener noreferrer">View</a>
+
+            {/* Only show save button if user is authenticated */}
+            {isAuth &&
+              <a id="saveBtn" className={`btn btn-primary save-button ${btnDisabled && "disabled"}`} onClick={handleSave}>Save</a>
+            }
+
           </div>
           <p className="card-text article-description mb-1">{description}</p>
 
@@ -57,8 +67,7 @@ const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail
           </div>
         </div>
       </div>
-    </a>
-
+    </div>
   )
 
 }
