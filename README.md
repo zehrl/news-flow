@@ -12,14 +12,13 @@ Website: http://news-flow.herokuapp.com/
 ## Table of Contents
 * [Description](#Description)
 * [Instructions](#Instructions)
+* [Utilized Tools](#Utilized-Tools)
 * [Questions](#Questions)
 * [License](#License)
 
 ---
 
 ## Description
-
-DESCRIPTION OF NEWS FLOW
 
 This app allows users to interact with google maps and based on where they click, news from that area will populate into the news feed section. Users are able to search and view news without signing into a profile. Once the user creates a profile with a valid email and password they will have the ability to save news articles. These saved articles will be added to the users profile page where they can view or delete previously saved articles. 
 
@@ -30,15 +29,14 @@ This app allows users to interact with google maps and based on where they click
 
 ## Instructions
 
-EXPLAIN HOW TO USE APP
-
-1. instruction
-2. instruction
-3. instruction
+1. Create a profile and login.
+2. Use the mouse to click on different areas of the map.
+3. View or save articles that populate in the news feed.
+4. Click on the profile page to view all of your saved articles.
 
 ---
 
-## Utilized Tools
+## Utilized-Tools
 
 * NodeJs
 * Sass
@@ -53,7 +51,12 @@ EXPLAIN HOW TO USE APP
 
 ## Questions
 
-* Creator githubs: [Logan](https://github.com/zehrl), [Cory](https://github.com/CoryKDev), [Anotnio](https://github.com/goantonioUW), [Michael](https://github.com/mfrisch87)
+Creator github profiles: 
+
+* [Logan](https://github.com/zehrl)
+* [Cory](https://github.com/CoryKDev)
+* [Anotnio](https://github.com/goantonioUW)
+* [Michael](https://github.com/mfrisch87)
 
 ---
 
