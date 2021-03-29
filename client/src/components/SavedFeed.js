@@ -35,7 +35,7 @@ function SavedFeed() {
 
     return (
         <div className="card-container overflow-auto">
-            {(saveCards.length > 0) ? saveCards : <h2 className="text-center">You have no saved posts.</h2>}
+            {(saveCards.length > 0) ? saveCards : <h2 className="text-center secondary-text">You have no saved posts.</h2>}
         </div>
     )
 }

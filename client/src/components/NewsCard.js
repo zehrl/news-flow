@@ -1,9 +1,12 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import savedArticlesAPI from '../utils/savedArticlesAPI';
 import { useAuthenticatedUser, useIsAuthenticated } from '../utils/auth'
 
 const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail, category, provider } }) => {
+
+  // Determines if card save button is enabled or disabled
+  const [btnDisabled, setBtnDisabled] = useState(false)
 
   const isAuth = useIsAuthenticated();
   const authData = useAuthenticatedUser();
@@ -23,10 +26,15 @@ const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail
     }
 
     if (authData) {
-      savedArticlesAPI.saveArticle(authData.email, articleData)
+      savedArticlesAPI
+        .saveArticle(authData.email, articleData)
+        .then(setBtnDisabled(true))
     }
+
+
   }
 
+  useEffect(() => { }, [btnDisabled])
 
   return (
 
@@ -38,7 +46,10 @@ const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail
             <h5 className="card-title article-title mb-0 me-2">{title}</h5>
             <a className="btn btn-primary save-button me-1" href={url} target="_blank" rel="noopener noreferrer">View</a>
 
-            {isAuth && <a id="saveBtn" className="btn btn-primary save-button" onClick={handleSave}>Save</a>}
+            {/* Only show save button if user is authenticated */}
+            {isAuth &&
+              <a id="saveBtn" className={`btn btn-primary save-button ${btnDisabled && "disabled"}`} onClick={handleSave}>Save</a>
+            }
 
           </div>
           <p className="card-text article-description mb-1">{description}</p>
