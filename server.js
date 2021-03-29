@@ -34,13 +34,8 @@ if (process.env.NODE_ENV === "production") {
 //   res.sendFile(path.join(__dirname, "./client/public/index.html"));
 // });
 
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-
-
-app.listen(PORT, function (error) {
-  if (error) { throw error } else { console.log(`🌎 ==> API server now on port ${PORT}!`) };
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
 
 mongoose.connect(process.env.DATABASE_ACCESS,
@@ -53,3 +48,6 @@ mongoose.connect(process.env.DATABASE_ACCESS,
     console.log("Database connected")
   })
 
+app.listen(PORT, function (error) {
+  if (error) { throw error } else { console.log(`🌎 ==> API server now on port ${PORT}!`) };
+});
