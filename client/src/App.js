@@ -18,7 +18,7 @@ function App() {
   console.log("App.js, isAuth: ", isAuth)
 
   return (
-    <div className="h-100 d-flex flex-column">
+    <div className="h-100 d-flex flex-column pt-5">
       <Header />
       <Switch>
 

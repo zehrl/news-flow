@@ -4,6 +4,11 @@ body {
   height: 100vh;
 }
 
+.section-header {
+  color: #d8d4c1;
+  font-family: 'New Tegomin', serif;
+}
+
 /* Header */
 #header-nav {
   background-color: #53aa7d;
