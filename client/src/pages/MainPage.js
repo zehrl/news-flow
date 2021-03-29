@@ -5,19 +5,7 @@ import '../sass/mainPage.css';
 import thirdPartyAPI from "../utils/thirdPartyAPI";
 
 const MainPage = () => {
-    // Making State
-    const [location, setLocation] = useState("Seatle, WA");
-
-    useEffect(() => {
-        loadNews()
-    });
-
-    function loadNews() {
-        thirdPartyAPI
-            .getLocation()
-            .then(res => setLocation(res.data))
-            .catch(err => console.log(err))
-    };
+    const [location, setLocation] = useState("Seatle, Washington, United States");
 
     return (
         <main className="mt-5">

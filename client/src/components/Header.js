@@ -1,24 +1,28 @@
 import React from 'react';
 import '../sass/navbar.css';
 import logo from '../images/logo.png';
-import { useLogout } from '../utils/auth';
+import { useIsAuthenticated, useLogout } from '../utils/auth';
 
 
 const Header = () => {
 
+    let isAuth = useIsAuthenticated();
+    (isAuth === undefined) ? isAuth = false : isAuth = true
+    // let isAuth = true;
+
     const logout = useLogout();
+
+    console.log("header.js, IsAuth: ", isAuth);
 
     return (
         <header>
             <nav className="navbar navbar-expand-sm navbar-dark fixed-top" id="header-nav">
                 <div className="container-fluid">
 
-                    <div>
-                        <a className="navbar-brand" id="nav-title" href="/">
-                            <img id="logo" src={logo} alt="logo" />
-                            News Flow
-                        </a>
-                    </div>
+                    <a className="navbar-brand d-flex align-items-center" id="nav-title" href="/">
+                        <img id="logo" src={logo} alt="logo" />
+                        <span className="ml-2">News Flow</span>
+                    </a>
 
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#header-nav-links" aria-controls="navbarNav" aria-expanded="false"
@@ -28,18 +32,25 @@ const Header = () => {
 
                     <div className="collapse navbar-collapse justify-content-end" id="header-nav-links">
                         <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <a className="nav-link" aria-current="page" href="/SignUp">SignUp</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" aria-current="page" href="/Login">Login</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="/ProfilePage">Profile</a>
-                            </li>
-                            <li className="nav-item">
-                                <a onClick={logout} className="nav-link" href="/">Logout</a>
-                            </li>
+                            
+                            {!isAuth && <li className="nav-item">
+                                <a className="nav-link" aria-current="page" href="/signup">sign up</a>
+                            </li>}
+                            
+                            {!isAuth && <li className="nav-item">
+                                <a className="nav-link" aria-current="page" href="/login">login</a>
+                            </li>}
+                            
+
+                            {isAuth && <li className="nav-item">
+                                <a className="nav-link" href="/profile">profile</a>
+                            </li>}
+                            
+
+                            {isAuth && <li className="nav-item">
+                                <a onClick={logout} className="nav-link" href="/">logout</a>
+                            </li>}
+                            
                         </ul>
                     </div>
 

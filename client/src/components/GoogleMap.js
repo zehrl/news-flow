@@ -71,20 +71,6 @@ const GoogleMap = ({ initLat, initLng, zoom, setLocation }) => {
                 return location;
 
             })
-            // .then((location) => {
-                
-            //     // FOR DEVELOPMENT PURPOSES. THIS WILL BE MOVED
-            //     API
-            //         .getNews(location)
-            //         .then((res) => {
-            //             console.log("Bing Results! -> ", res)
-            //         })
-            //         .catch((error)=>{
-            //             console.log("Oh snap! Something bad happened: ", error);
-            //         })
-
-            // })
-
 
     }
 

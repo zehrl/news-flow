@@ -1,9 +1,15 @@
 import { Route, Redirect } from "react-router-dom";
-import { useIsAuthenticated } from "../utils/auth";
+import { useAuthenticatedUser, useIsAuthenticated } from "../utils/auth";
+import React from 'react';
 
 const GuestRoute = ({ component: Component, children, redirectTo = "/", ...props }) => {
 
-    const isAuth = useIsAuthenticated();
+    let isAuth = useIsAuthenticated();
+    (isAuth === undefined) ? isAuth = false : isAuth = true
+
+    const authUser = useAuthenticatedUser()
+    console.log("isAuth? ", isAuth)
+    console.log("authUser: ", authUser)
 
     const render = ({ location }) => (
         isAuth

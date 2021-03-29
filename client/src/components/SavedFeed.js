@@ -8,7 +8,7 @@ function SavedFeed() {
 
     const generateCards = (data) => {
         const cards = data.map(savedArticle => {
-            console.log("savedArticle: ", savedArticle)
+            // console.log("savedArticle: ", savedArticle)
             return <SaveCard savedArticle={savedArticle} />
         })
 

@@ -31,9 +31,8 @@ const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail
   //         .catch(err => console.log(err));
   // };
 
-  const handleSave = (event) => {
-    event.stopPropagation();
-    
+  const handleSave = () => {
+
     console.log("url: ", url)
 
     const articleData = {
@@ -41,19 +40,22 @@ const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail
     }
 
     savedArticlesAPI.saveArticle("coolguy69@internet.net", articleData)
+
+    
+
   }
 
 
   return (
 
-    <a href={url} target="_blank" rel="noopener noreferrer" className="card mb-3 news-card" style={{ maxWidth: "600px", margin: "auto" }}>
+    <div className="card mb-3 news-card" style={{ maxWidth: "600px", margin: "auto" }}>
       <div className="card-body d-flex">
         <img className="me-3 rounded article-thumbnail" src={thumbnail} alt="..." />
         <div className="d-flex flex-column flex-grow-1 align-items-stretch">
           <div className="d-flex justify-content-between align-items-start mb-2">
             <h5 className="card-title article-title mb-0 me-2">{title}</h5>
-            {/* <a href="https://google.com" target="_blank" rel="noopener noreferrer"><button id="saveBtn" className="btn btn-primary save-button" type="submit">Save</button></a> */}
-            <a onClick={handleSave}><button id="saveBtn" className="btn btn-primary save-button" type="submit">Save</button></a>
+            <a className="btn btn-primary save-button" href={url} target="_blank" rel="noopener noreferrer">View</a>
+            <a id="saveBtn" className="btn btn-primary save-button" onClick={handleSave}>Save</a>
           
           </div>
           <p className="card-text article-description mb-1">{description}</p>
@@ -71,7 +73,7 @@ const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail
           </div>
         </div>
       </div>
-    </a>
+    </div>
 
   )
 

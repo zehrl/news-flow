@@ -2,31 +2,31 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
 import React from 'react';
-import {Switch, Route} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import ProfilePage from './pages/ProfilePage';
 import MainPage from "./pages/MainPage";
 import SignUp from './pages/SignUp';
 import { useAuthTokenStore } from "./utils/auth";
 import LoginPage from './pages/LoginPage';
-
-// const styles = {
-//   fontFamily: 'sans-serif',
-//   textAlign: 'center',
-// };
+import GuestRoute from './components/GuestRoute';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   // Use the hook to reauthenticate stored tokens.
-  useAuthTokenStore();
-  
+  console.log("useAuthTokenStore()")
+  const isAuth = useAuthTokenStore();
+  console.log("App.js, isAuth: ", isAuth)
+
   return (
     <div className="h-100 d-flex flex-column">
       <Header />
-
       <Switch>
-        <Route path="/ProfilePage" component={ProfilePage} />
-        <Route path="/SignUp" component={SignUp} />
-        <Route path="/Login" component={LoginPage} />
-        <Route path="/" component={MainPage} />
+
+        <Route exact path="/" component={MainPage} />
+        <GuestRoute exact path="/signup" redirectTo="/" component={SignUp} />
+        <GuestRoute exact path="/login" redirectTo="/" component={LoginPage} />
+        {/* <PrivateRoute exact path="/profile" redirectTo="/login" component={ProfilePage} /> */}
+        <Route exact path="/profile" component={ProfilePage}></Route>
       </Switch>
 
       <Footer />
