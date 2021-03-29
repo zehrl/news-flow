@@ -34,11 +34,11 @@ const Header = () => {
                         <ul className="navbar-nav">
                             
                             {!isAuth && <li className="nav-item">
-                                <a className="nav-link" aria-current="page" href="/signup">sign up</a>
+                                <a className="nav-link" aria-current="page" href="/signup">Sign up</a>
                             </li>}
                             
                             {!isAuth && <li className="nav-item">
-                                <a className="nav-link" aria-current="page" href="/login">login</a>
+                                <a className="nav-link" aria-current="page" href="/login">Login</a>
                             </li>}
                             
 
