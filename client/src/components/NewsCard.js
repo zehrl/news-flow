@@ -36,12 +36,15 @@ const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail
     console.log("url: ", url)
 
     const articleData = {
-      url
+      title,
+      description,
+      url,
+      publishedDate,
+      thumbnail,
+      provider
     }
 
     savedArticlesAPI.saveArticle("coolguy69@internet.net", articleData)
-
-    
 
   }
 
@@ -74,7 +77,6 @@ const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail
         </div>
       </div>
     </div>
-
   )
 
 }

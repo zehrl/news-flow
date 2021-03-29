@@ -6,7 +6,7 @@ import SavedFeed from '../components/SavedFeed';
 const ProfilePage = () => {
     
     return (
-        <div class="container-md">
+        <div className="container-md">
             <h1 className="text-center">Saved Posts</h1>
             <SavedFeed />
         </div>

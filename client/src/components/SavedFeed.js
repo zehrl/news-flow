@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SaveCard from "./SaveCard";
-import devData from "../utils/savedCardsDevData.json"
+// import devData from "../utils/savedCardsDevData.json"
+import savedArticlesAPI from "../utils/savedArticlesAPI";
 
 function SavedFeed() {
 
@@ -16,13 +17,14 @@ function SavedFeed() {
     }
 
     useEffect(() => {
-        
+
         // Run API
-        
-
-
-        console.log("generating cards: ", devData)
-        generateCards(devData)
+        savedArticlesAPI
+            .getFavorites("coolguy69@internet.net")
+            .then(savedArticles => {
+                console.log("savedArticles: ", savedArticles)
+                generateCards(savedArticles)
+            })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

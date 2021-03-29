@@ -2,11 +2,18 @@ import axios from 'axios';
 
 export default {
     getFavorites: function (email) {
-        return axios.get("/api/savedArticles",
-            {
-                params: {
-                    email
-                }
+
+        // return axios.get("api/savedArticles", {email})
+
+        console.log("getFavorites, email: ", email)
+        return axios
+            .get("/api/savedArticles/" + email)
+            .then(({ data }) => {
+                return data
+            })
+            .catch(err => {
+                console.log("error: ", err.results)
+                throw err;
             })
     },
 
