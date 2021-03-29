@@ -16,6 +16,20 @@ body {
 
 /* Header */
 
+#logo {
+    background-image: url(../images/logo.png);
+    width: 35px;
+    height: 40px;
+    padding-right: 5px;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5rem;
+}
+
+#header-nav-links {
+    font-family: sans-serif;
+    font-size: 1rem;
+}
+
 #header-nav {
     background-color: #53aa7d;
     background-image: linear-gradient(45deg, #53aa7d 0%, #00c958 100%);
@@ -25,6 +39,7 @@ body {
 #nav-title{
     font-family: 'Pacifico', cursive;
     font-size: 2rem;
+    text-shadow: #26547C 1px solid;
 }
 
 /* Main */

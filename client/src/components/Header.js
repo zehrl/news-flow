@@ -19,9 +19,9 @@ const Header = () => {
             <nav className="navbar navbar-expand-sm navbar-dark fixed-top" id="header-nav">
                 <div className="container-fluid">
 
-                    <a className="navbar-brand d-flex align-items-center" id="nav-title" href="/">
+                    <a className="navbar-brand d-flex align-items-center" href="/">
                         <img id="logo" src={logo} alt="logo" />
-                        <span className="ml-2">News Flow</span>
+                        <span id="nav-title" className="ml-2">News Flow</span>
                     </a>
 
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
