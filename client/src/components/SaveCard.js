@@ -11,8 +11,13 @@ const SaveCard = ({ savedArticle: { title, description, url, publishedDate, thum
   const handleDelete = () => {
     console.log("handleDelete called...")
     console.log("authData: ", authData)
-    savedArticlesAPI.deleteFavorite(authData.email, url).then(getSavedArticles())
+    savedArticlesAPI.deleteFavorite(authData.email, url).then(() => {
+      console.log("calling getSavedArticles()...")
+      getSavedArticles()
+    })
   }
+
+
 
   return (
 

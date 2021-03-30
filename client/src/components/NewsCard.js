@@ -48,7 +48,7 @@ const NewsCard = ({ article: { url, title, description, publishedDate, thumbnail
 
             {/* Only show save button if user is authenticated */}
             {isAuth &&
-              <a id="saveBtn" className={`btn btn-primary save-button ${btnDisabled && "disabled"}`} onClick={handleSave}>Save</a>
+              <a id="saveBtn" className={`btn btn-primary save-button ${btnDisabled && "disabled"}`} onClick={handleSave}>{btnDisabled ? "Saved" : "Save"}</a>
             }
 
           </div>
