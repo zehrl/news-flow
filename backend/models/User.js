@@ -31,7 +31,7 @@ const UserSchema = new Schema({
         url: {
             type: String,
             required: true,
-            unique: [true, "No article url provided"]
+            // unique: [true, "No article url provided"]
         },
         publishedDate: {
             type: Date,

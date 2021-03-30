@@ -43,12 +43,14 @@ router.post('/savedArticles', async (req, res) => {
 
 
         // If article is already favorite, return error
+        console.log("user data: ", user)
         const urls = user.savedArticles.map(article => article.url)
         console.log("urls: ", urls)
-        console.log("artivleData.url: ", articleData.url)
+        console.log("articleData.url: ", articleData.url)
 
 
         const isUniqueUrl = !(urls.includes(articleData.url));
+
 
         if (!isUniqueUrl) {
             return res.status(404).json("User already favorited that article")
@@ -56,10 +58,16 @@ router.post('/savedArticles', async (req, res) => {
 
         // push article to favorites and save user
         user.savedArticles.push(articleData);
+        console.log("user.savedArticles.push: ", user)
 
-        User.updateOne(user, (err, data) => {
-            res.status(200).json("Article Saved")
-        });
+        user.save()
+
+        // User.updateOne({email: user.email}, (err, data) => {
+        //     if (err) {throw err}
+        //     console.log("data: ", data)
+        //     res.status(200).json("Article Saved")
+        // })
+        // .catch(err => res.status(500).json(err));
 
     }
     catch (error) {
