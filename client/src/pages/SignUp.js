@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css"
 import '../sass/signUp.css'
 import API from '../utils/api';
+import { useLogin } from '../utils/auth'
 
 const SignUp = () => {
 
+  const login = useLogin();
   const [fullName, setFullName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -34,8 +36,15 @@ const SignUp = () => {
 
     // console.log("SignUp.js, userData: ", (userData))
 
-    API.register(userData).catch(error => console.log(error.response.data));
-
+    API
+      .register(userData)
+      .then(() => {
+        return login({
+          email: userData.email,
+          password: userData.password
+        })
+      })
+      .catch(error => console.log(error.response.data));
 
   }
 
