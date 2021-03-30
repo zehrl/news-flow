@@ -1,7 +1,7 @@
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-# News Flow
+![News Flow title](./client/src/images/news-flow.png)
 
 Repo: https://github.com/CoryKDev/news-flow
 
@@ -22,7 +22,7 @@ Website: http://news-flow.herokuapp.com/
 
 This app allows users to interact with google maps and based on where they click, news from that area will populate into the news feed section. Users are able to search and view news without signing into a profile. Once the user creates a profile with a valid email and password they will have the ability to save news articles. These saved articles will be added to the users profile page where they can view or delete previously saved articles. 
 
-![screenshot](./client/src/images/news-flow-screenshot.gif)
+![website usage](./client/src/images/news-flow-screenshot.gif)
 
 
 ---
