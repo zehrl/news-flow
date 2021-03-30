@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import SaveCard from "./SaveCard";
 // import devData from "../utils/savedCardsDevData.json"
 import savedArticlesAPI from "../utils/savedArticlesAPI";
+import { useAuthenticatedUser } from '../utils/auth'
 
 function SavedFeed() {
-
+    // const authData = useAuthenticatedUser();
     const [saveCards, setSaveCards] = useState([])
 
     const generateCards = (data) => {
@@ -17,8 +18,11 @@ function SavedFeed() {
     }
 
     const getSavedArticles = async () => {
+
+        // console.log("authData: ", authData.email)
+
         return savedArticlesAPI
-            .getFavorites("coolguy69@internet.net")
+            .getFavorites("demo@gmail.com")
             .then(savedArticles => {
                 console.log("savedArticles: ", savedArticles)
                 generateCards(savedArticles)
