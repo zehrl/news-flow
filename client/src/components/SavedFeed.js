@@ -12,7 +12,7 @@ function SavedFeed() {
     const generateCards = (data) => {
         const cards = data.map(savedArticle => {
             // console.log("savedArticle: ", savedArticle)
-            return <SaveCard savedArticle={savedArticle} getSavedArticles={getSavedArticles} />
+            return <SaveCard savedArticle={savedArticle} getSavedArticles={getSavedArticles} key={savedArticle.url}/>
         })
 
         setSaveCards(cards)

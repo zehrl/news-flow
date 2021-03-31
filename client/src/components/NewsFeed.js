@@ -12,7 +12,7 @@ function NewsFeed({location}) {
             // Check if URL is in the user's saved list and change to saved to true
             // article.saved = true;
             
-            return <NewsCard article={article} />
+            return <NewsCard article={article} key={article.url} />
         })
 
         setNewsCards(cards)
