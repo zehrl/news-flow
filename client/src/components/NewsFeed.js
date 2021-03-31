@@ -27,7 +27,7 @@ function NewsFeed({location}) {
 
 
     return (
-        <div className="card-container overflow-auto" id="scroll-bar">
+        <div className="card-container overflow-auto scroll-bar">
             {newsCards}
             {(newsCards.length > 0) ? newsCards : <h2 className="text-center secondary-text">No results for this location.</h2>}
         </div>

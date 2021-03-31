@@ -41,7 +41,7 @@ function SavedFeed() {
     }, [authData])
 
     return (
-        <div className="card-container overflow-auto">
+        <div className="card-container overflow-auto scroll-bar">
             {(saveCards.length > 0) ? saveCards : <h2 className="text-center secondary-text">You have no saved posts.</h2>}
         </div>
     )
