@@ -29,8 +29,10 @@ const SaveCard = ({ savedArticle: { title, description, url, publishedDate, thum
         <div className="d-flex flex-column flex-grow-1 align-items-stretch">
           <div className="d-flex justify-content-between align-items-start mb-2">
             <h5 className="card-title article-title mb-0 me-2">{title}</h5>
-            <button onClick={handleDelete} id="saveBtn" className="btn btn-danger save-button me-1">Delete</button>
-            <a id="saveBtn" className="btn btn-primary save-button" href={url} target="_blank" rel="noopener noreferrer">View</a>
+            <div className="d-flex flex-nowrap">
+              <button onClick={handleDelete} id="saveBtn" className="btn btn-danger save-button me-1">Delete</button>
+              <a id="saveBtn" className="btn btn-primary save-button" href={url} target="_blank" rel="noopener noreferrer">View</a>
+            </div>
           </div>
           <p className="card-text article-description mb-1">{description}</p>
 
