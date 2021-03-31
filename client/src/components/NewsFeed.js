@@ -12,7 +12,7 @@ function NewsFeed({location}) {
             // Check if URL is in the user's saved list and change to saved to true
             // article.saved = true;
             
-            return <NewsCard article={article} />
+            return <NewsCard article={article} key={article.url} />
         })
 
         setNewsCards(cards)
@@ -27,7 +27,7 @@ function NewsFeed({location}) {
 
 
     return (
-        <div className="card-container overflow-auto" id="scroll-bar">
+        <div className="card-container overflow-auto scroll-bar">
             {newsCards}
             {(newsCards.length > 0) ? newsCards : <h2 className="text-center secondary-text">No results for this location.</h2>}
         </div>

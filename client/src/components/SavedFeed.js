@@ -5,13 +5,14 @@ import savedArticlesAPI from "../utils/savedArticlesAPI";
 import { useAuthenticatedUser } from '../utils/auth'
 
 function SavedFeed() {
-    // const authData = useAuthenticatedUser();
-    const [saveCards, setSaveCards] = useState([])
+    const authData = useAuthenticatedUser();
+    // console.log("SavedFeed(), authData: ", authData)
 
+    const [saveCards, setSaveCards] = useState([])
     const generateCards = (data) => {
         const cards = data.map(savedArticle => {
             // console.log("savedArticle: ", savedArticle)
-            return <SaveCard savedArticle={savedArticle} getSavedArticles={getSavedArticles} />
+            return <SaveCard savedArticle={savedArticle} getSavedArticles={getSavedArticles} key={savedArticle.url}/>
         })
 
         setSaveCards(cards)
@@ -19,10 +20,8 @@ function SavedFeed() {
 
     const getSavedArticles = async () => {
 
-        // console.log("authData: ", authData.email)
-
         return savedArticlesAPI
-            .getFavorites("demo@gmail.com")
+            .getFavorites(authData.email)
             .then(savedArticles => {
                 console.log("savedArticles: ", savedArticles)
                 generateCards(savedArticles)
@@ -31,14 +30,18 @@ function SavedFeed() {
 
     useEffect(() => {
         console.log("SavedFeed.js useEffect() called")
-        // Run API
-        getSavedArticles()
+
+        // Only run if there is user authenticated data (ie. email)
+        if (authData) {
+            // Run API
+            getSavedArticles()
+        }
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [authData])
 
     return (
-        <div className="card-container overflow-auto">
+        <div className="card-container overflow-auto scroll-bar">
             {(saveCards.length > 0) ? saveCards : <h2 className="text-center secondary-text">You have no saved posts.</h2>}
         </div>
     )
